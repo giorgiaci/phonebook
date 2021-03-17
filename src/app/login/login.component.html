@@ -1,0 +1,41 @@
+
+<form 
+  autocomplete="off" 
+  [formGroup]="loginForm" 
+  (ngSubmit)="onSubmit()"
+  >
+  <div class="col-md-4">
+    <label>Name: </label>
+    <input autocomplete="off" type="text"  formControlName="name"  class="form-control">
+    <span *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">
+        <span *ngIf="loginForm.get('name').errors['required']">This field is required <br></span>
+    </span>
+
+    <label>Password: </label>
+    <input autocomplete="off" type="text"  formControlName="password"  class="form-control">
+    <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+        <span *ngIf="loginForm.get('password').errors['required']">This field is required <br></span>
+    </span>
+    
+    
+    <span  *ngIf="loginError">Username e/o password errati</span>
+    <br><br>
+    <button class="btn btn-primary" autocomplete="off" type="submit" [disabled]="!loginForm.valid">Login</button>
+    
+   
+
+  </div>
+
+  <hr>
+  <p>Form Value: {{ loginForm.value | json }}</p>
+  <p>Form Status: {{ loginForm.status }}</p>
+
+
+
+</form>
+<!-- <h2>LOGIN</h2>
+<p>{{message}}</p>
+<p>
+  <button (click)="login()"  *ngIf="!loginService.isLoggedIn">Login</button>
+  <button (click)="logout()" *ngIf="loginService.isLoggedIn">Logout</button>
+</p> -->

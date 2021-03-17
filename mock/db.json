@@ -1,0 +1,124 @@
+{
+  "persons": [
+    {
+      "id": 1,
+      "nome": "Giorgia",
+      "cognome": "Ciulla",
+      "telefono": "222222",
+      "eta": "0",
+      "datanascita": "2021-03-01",
+      "codFiscale": "DOSF4422J",
+      "email": "giorgia@ciulla.com",
+      "via": "'Via del Corso'",
+      "stato": "Italy",
+      "citta": "Roma",
+      "cap": "00100"
+    },
+    {
+      "id": 2,
+      "nome": "Alessandro",
+      "cognome": "Avolio",
+      "email": "alessandro@avolio.com",
+      "codFiscale": "DOSF4422J4IEOE",
+      "datanascita": " 12/12/21",
+      "eta": "22",
+      "telefono": "222222",
+      "via": "'Via del Corso'",
+      "citta": "Roma",
+      "stato": "Italy",
+      "cap": "00100"
+    },
+    {
+      "id": 3,
+      "nome": "Laura",
+      "cognome": "Nocera",
+      "email": "laura@nocera.com",
+      "codFiscale": "DOSF4422J4IEOE",
+      "datanascita": " 12/12/21",
+      "eta": "22",
+      "telefono": "333333",
+      "via": "'Via del Corso'",
+      "citta": "Roma",
+      "stato": "Italy",
+      "cap": "00100"
+    },
+    {
+      "id": 4,
+      "nome": "Dario",
+      "cognome": "Fabbri",
+      "email": "dario@fabbri.com",
+      "codFiscale": "DOSF4422J4IEOE",
+      "datanascita": " 12/12/21",
+      "eta": "22",
+      "telefono": "4444444",
+      "via": "'Via del Corso'",
+      "citta": "Roma",
+      "stato": "Italy",
+      "cap": "00100"
+    }
+  ],
+  "cars": [
+    {
+      "idPersona": 2,
+      "targa": "iuwei22",
+      "modello": "decappottabile",
+      "marca": "ferrari",
+      "cavalli": "200",
+      "id": 3
+    },
+    {
+      "idPersona": 2,
+      "targa": "cici",
+      "modello": "utilitaria",
+      "marca": "cici",
+      "cavalli": "122",
+      "id": 7
+    },
+    {
+      "idPersona": 1,
+      "targa": "132312",
+      "modello": "GIP",
+      "marca": "fiat",
+      "cavalli": "111",
+      "id": 9
+    },
+    {
+      "idPersona": 1,
+      "targa": "123467",
+      "modello": "GIP",
+      "marca": "ferrari",
+      "cavalli": "111",
+      "id": 10
+    }
+  ],
+  "tipologicaMacchine": [
+    {
+      "id": 1,
+      "nome": "GIP"
+    },
+    {
+      "id": 2,
+      "nome": "UTILITARIA"
+    },
+    {
+      "id": 3,
+      "nome": "DECAPPOTTABILE"
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "nomePersona": "Giorgia",
+      "cognomePersona": "Ciulla",
+      "password": "12345",
+      "ruolo": "studentessa"
+    },
+    {
+      "id": 2,
+      "nomePersona": "Alessandro",
+      "cognomePersona": "Avolio",
+      "password": "12345",
+      "ruolo": "Insegnante"
+    }
+  ]
+}

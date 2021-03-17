@@ -1,0 +1,100 @@
+<br>
+<form [formGroup]="searchForm">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="type surname.."
+      style="width: 300px; float: left; margin-right: 5px;"
+    
+     [formControl]="this.searchForm.get('surnameCriteria')"
+    />
+    <input
+    type="text"
+    class="form-control"
+    placeholder="type email.."
+    style="width: 300px; float: left; margin-right: 5px;"
+    [formControl]="this.searchForm.get('email')"
+  /> 
+  <input
+      type="text"
+      class="form-control"
+      placeholder="type criteria.."
+      style="width: 300px; float: left;"
+    
+     [formControl]="this.searchForm.get('criteria')"
+    /><br>
+
+  </div>
+<br>
+  <button
+    type="button"
+    class="btn btn-default"
+    (click)="search()"
+    style="margin-right: 3px"
+  >
+    Filter
+  </button>|
+  <button type="button" class="btn btn-primary">
+    <a style="color: white" routerLink="/person/add"> Add person</a>
+  </button>
+  <br /><br />
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">FiscalCode</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Age</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Email</th>
+
+        <th scope="col">Street</th>
+        <th scope="col">City</th>
+        <th scope="col">State</th>
+        <th scope="col">Zip code</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of searchResult">
+        <!-- <tr *ngFor="let person of searchResult | inverti"> -->
+
+        <td>{{ person.name }}</td>
+        <td>{{ person.surname }}</td>
+        <td class="data-bold">{{ person.codFiscale }}</td>
+        <td>{{ person.birthdate | date: "dd-MM-yy" }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.phoneNumber }}</td>
+        <td>{{ person.email }}</td>
+
+        <td>{{ person.street }}</td>
+        <td>{{ person.city }}</td>
+        <td>{{ person.state }}</td>
+        <td>{{ person.zip }}</td>
+
+        <td>
+          <button
+            [routerLink]="['/person', person.id, 'detail']"
+            type="button"
+            class="btn btn-success"
+          >
+            <span
+              class="glyphicon glyphicon-eye-open"
+              aria-hidden="true"
+            ></span>
+          </button>
+
+          <button
+            [routerLink]="['/person', person.id, 'edit']"
+            type="button"
+            class="btn btn-primary"
+          >
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

@@ -1,37 +1,32 @@
-<h1>Phone book</h1>
-<form [formGroup]="searchForm" >
-  <div class="form-group">
-  <input 
-    type="text"
-    class="form-control"
-    placeholder="type name.."
-    style="width: 300px;"
-    [formControl]="this.searchForm.get('surnameCriteria')"
-  >
+<div class="container">
+  <button (click)="logOut()" type="button" class="btn btn-primary" style="margin-top: 50px; float: right">Log out</button>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
+      <h1>Phone book</h1>
+      <ul class="nav nav-tabs">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link  active" [routerLink]="'/'" >Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="'/person/search'" >Search person page</a
+          >
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="'/person/add'" >Add person page</a
+          >
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="'/login'" >Login</a
+          >
+        
+
+      </ul>
+    </div>
   </div>
-  <button class="btn" (click)="search()">Filter</button>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let person of searchResult">
-        
-        <td>{{person.name}}</td>
-        <td>{{person.surname}}</td>
-        <td>{{person.phoneNumber}}</td>
-      </tr>
-      <tr>
-    </tbody>
-  </table>
-
-
-
-  
-</form>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

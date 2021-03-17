@@ -1,0 +1,40 @@
+<h1> Welcome {{username}} in the home page!</h1>
+
+
+<!-- Modal -->
+
+<button type="button" class="btn btn-primary"  (click)="showModal()">Show Modal</button>
+
+<app-modal #aleTiOdio [title]="'hello'">Ciao<div>Mondo</div></app-modal>
+
+<!-- Card -->
+<app-cards [title]='person.name' *ngFor="let person of searchResult" >
+    <hr>
+     <div class="row">
+
+      <div class="col-4">
+    
+        <p style="text-align: center;">Super Hero</p>
+         <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png">
+      </div>
+          <div class="col-4">
+            <p>{{ person.name }}</p>
+            <p>{{ person.surname }}</p>
+            <p class="data-bold">{{ person.codFiscale }}</p>
+            <p>{{ person.birthdate | date: "dd-MM-yy" }}</p>
+            <p>{{ person.age }}</p>
+            <p>{{ person.phoneNumber }}</p>
+            <p>{{ person.email }}</p>
+          </div>
+          <div class="col-4">
+            <p>{{ person.street }}</p>
+            <p>{{ person.city }}</p>
+            <p>{{ person.state }}</p>
+            <p>{{ person.zip }}</p>
+          </div>
+    
+         
+ 
+         
+        </div>
+</app-cards>

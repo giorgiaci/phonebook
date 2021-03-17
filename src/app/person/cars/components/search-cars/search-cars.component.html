@@ -1,0 +1,26 @@
+<p>search-cars works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Carplate</th>
+        <th scope="col">Model</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Engine</th>
+       
+         </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of searchResult">
+        
+        <td>{{car.carplate}}</td>
+        <td>{{car.model}}</td>
+        <td>{{car.brand}}</td>          
+        <td>{{car.engine }}</td>
+        
+        
+         <button [routerLink]="['/person/detail', person.id]">Details</button>
+      </tr>
+  
+    </tbody>
+  </table>

@@ -1,0 +1,32 @@
+<br>
+  <table class="table table-bordered">
+    <thead  class="text-white bg-dark">
+      <tr>
+        <th scope="col">Carplate</th>
+        <th scope="col">Model</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Engine</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--<tr *ngFor="let car of cars" >-->
+      <!-- <tr *ngFor="let car of cars;  let i = index;"  [ngClass]="{'highlight': selectedIndex === i}">         -->
+        <tr *ngFor="let car of cars; "  [ngClass]="{'highlight': selectedCar === car}">        
+
+        <td>{{car.carplate}}</td>
+        <td>{{car.model}}</td>
+        <td>{{car.brand}}</td>          
+        <td>{{car.engine }}</td>        
+        <td>
+          <button (click)="setRow(car)" type="button" class="btn btn-success" style="margin-right: 5px;">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 
+          </button>
+
+            <!-- <button (click)="setRow(i)" type="button" class="btn btn-success" style="margin-right: 5px;">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 
+            </button> -->
+            <button class="btn btn-danger" (click)="deleteCarInDetail(car.id)" style="padding: 6px 14px"> X </button>
+        </td>
+      </tr> 
+    </tbody>
+</table>
