@@ -5,13 +5,14 @@
  
   >
   <br>
-  <div class="col-md-4">
+  <div class="row">
+    <div class="col-md-4">
 
-<label>Salti: </label>
+<!-- <label>Salti: </label>
 <div class="btn btn-primary" (click)="settaSalti()">
   setta salti
 </div>
-<app-incremento formControlName="salti" ></app-incremento>
+<app-incremento formControlName="salti" ></app-incremento> -->
 
     <label>First name: </label>
     <input autocomplete="off" type="text"  formControlName="firstName"  class="form-control">
@@ -87,4 +88,6 @@
     <p>Form Value: {{ personForm.value | json }}</p>
     <p>Form Status: {{ personForm.status }}</p>
   </div>
+  </div>
+  
 </form>

@@ -123,7 +123,7 @@ export class AddPersonComponent implements OnInit {
     let birthday = this.fb.control(undefined, [Validators.required]);
 
     this.personForm = this.fb.group({
-      salti:[0],
+      //salti:[0],
       firstName: [undefined, Validators.required],
       lastName: [undefined, [Validators.required, Validators.maxLength(10)]],
       fiscalCode: [
