@@ -18,7 +18,7 @@ export class DetailPersonComponent implements OnInit {
   personForm: FormGroup;
   person: Person;
   cars: Car[];
-
+  car:Car;
 // idPerson: string;
 // queryParameter: any;
 // subscriptions: Subscription [] = [] ;
@@ -83,6 +83,13 @@ export class DetailPersonComponent implements OnInit {
       }
     );
   }
-
+modifyCarInDetail(car){
+  this.carService.modifyCar(car)
+  .subscribe(
+    (ok)=>{alert('car modified');
+    this.getCars(this.person.id);
+  }
+  )
+}
  
 }

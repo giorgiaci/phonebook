@@ -30,7 +30,7 @@ export class AddPersonComponent implements OnInit {
 
   ngOnInit() {
     const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
-console.log(idModified, 'hello')
+
     this.inizializzaForm();
     this.getPerson(idModified);
   }
@@ -116,9 +116,9 @@ console.log(idModified, 'hello')
     );
   }
 
-  settaSalti(){
-    this.personForm.get('salti').setValue(666);
-  }
+  // settaSalti(){
+  //   this.personForm.get('salti').setValue(666);
+  // }
 
   inizializzaForm() {
     let birthday = this.fb.control(undefined, [Validators.required]);

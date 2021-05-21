@@ -5,7 +5,7 @@
 <table class="table table-bordered table-hover">
     <thead  class="text-white bg-dark">
       <tr>
-        
+
         <th scope="col">First name</th>
         <th scope="col">Last name</th>
         <th scope="col">FiscalCode</th>
@@ -22,35 +22,36 @@
     </thead>
     <tbody>
       <tr *ngIf="person">
-        
+
         <td>{{person.name}}</td>
         <td>{{person.surname}}</td>
-        <td>{{person.codFiscale}}</td>          
+        <td>{{person.codFiscale}}</td>
         <td>{{person.birthdate  | date }}</td>
         <td>{{person.age}}</td>
         <td>{{person.phoneNumber}}</td>
         <td>{{person.email}}</td>
-        
+
         <td>{{person.street}}</td>
         <td>{{person.city}}</td>
-        <td>{{person.state}}</td>          
+        <td>{{person.state}}</td>
         <td>{{person.zip}}</td>
-      
+
       </tr>
-  
+
     </tbody>
   </table>
 
 
   <button class="btn btn-primary" style="margin-right: 15px;"(click)="gotoSearch()">Search Page</button>
   <button class="btn btn-danger"  (click)="delete()">Delete person</button>
-  
-  <br><br>
-<button class="btn btn-success"  (click)="addCar()">Add a new car</button>
-   
-  <app-details-cars  [cars]="cars" (deleteCar)="deleteCarInDetail($event)"></app-details-cars>
 
-  
-  
+  <br><br>
+  <hr>
+
+  <app-details-cars  [cars]="cars" (modCar)="modifyCarInDetail($event)" (deleteCar)="deleteCarInDetail($event)"></app-details-cars>
+
+  <button class="btn btn-success"  (click)="addCar()">Add a new car</button>
+  <br><br>
+  <hr>
 
 

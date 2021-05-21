@@ -19,6 +19,8 @@ export class AddCarsComponent implements OnInit {
   addResult: Array<Car>;
   carsForm: FormGroup;
   person: Person;
+  car:Car;
+  carSvc:CarService;
 
   arrayTipologiche: Array <TipologicaModel>;
 
@@ -29,12 +31,25 @@ export class AddCarsComponent implements OnInit {
                private router: Router) { }
 
   ngOnInit(): void {
-  
+    const idModified = +this.activateRoute.snapshot.paramMap.get('idCar');
     this.inizializzaForm();
     this.getTipologica();
+    this.getCar(idModified);
+  }
+  getCar(idModified){
+    this.carSvc.getCar(idModified).subscribe((car)=>{
+      this.carsForm.get('carplate').setValue(car.carplate);
+      this.carsForm.get('brand').setValue(car.brand);
+      this.carsForm.get('engine').setValue(car.engine);
+      this.carsForm.get('model').setValue(car.model);
+      this.car=car;
+    })
   }
   onSubmit() { 
-    
+    if(this.car){
+      this.onSubmitModified()
+    }else{
+         
     const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
     
     let formValue = this.carsForm.value;
@@ -55,9 +70,27 @@ export class AddCarsComponent implements OnInit {
       },
       (error) => { console.error('', error) }
     );
+ 
+    }
 
   }
-  
+
+  onSubmitModified() {
+    let formValue = this.carsForm.value;
+    this.car.carplate= formValue.carplate;
+    this.car.brand= formValue.brand;
+    this.car.engine= formValue.engine;
+    this.car.model= formValue.model;
+
+    this.carSvc.modifyCar(this.car).subscribe(
+      (ok)=>{
+        alert('car modified');
+      },
+      (error)=>{
+        console.error('', error)
+      }
+    )
+  }
 
   inizializzaForm() {
     this.carsForm = this.fb.group({

@@ -5,13 +5,14 @@ import { SearchCarsComponent } from './components/search-cars/search-cars.compon
 
 
     const routes: Routes = [
-        {
-          
+        {          
           path: 'searchCar', component:SearchCarsComponent
         },
-        {
-         
+        {         
           path: 'addCar', component: AddCarsComponent
+        },
+        {
+          path: ':idCar', component:AddCarsComponent
         }
     ]
 

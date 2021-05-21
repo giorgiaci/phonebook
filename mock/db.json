@@ -2,7 +2,7 @@
   "persons": [
     {
       "id": 1,
-      "nome": "HELLO",
+      "nome": "Giorgia",
       "cognome": "Ciulla",
       "telefono": "07730761319",
       "eta": "0",
@@ -57,8 +57,8 @@
       "cap": "00100"
     },
     {
-      "nome": "OLGA",
-      "cognome": "Ciulla",
+      "nome": "Oleg",
+      "cognome": "Negruta",
       "telefono": "07730761319",
       "eta": "0",
       "datanascita": "2021-05-07",
@@ -111,6 +111,14 @@
       "marca": "FINALLY",
       "cavalli": "111",
       "id": 11
+    },
+    {
+      "idPersona": null,
+      "targa": "111",
+      "modello": "GIP",
+      "marca": "1111",
+      "cavalli": "111",
+      "id": 12
     }
   ],
   "tipologicaMacchine": [
