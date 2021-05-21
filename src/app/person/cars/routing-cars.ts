@@ -6,11 +6,11 @@ import { SearchCarsComponent } from './components/search-cars/search-cars.compon
 
     const routes: Routes = [
         {
-          // person/detail/idPerson/searchCar
+          
           path: 'searchCar', component:SearchCarsComponent
         },
         {
-          // person/detail/idPerson/addCar
+         
           path: 'addCar', component: AddCarsComponent
         }
     ]

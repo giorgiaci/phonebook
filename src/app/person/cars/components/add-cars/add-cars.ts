@@ -51,7 +51,7 @@ export class AddCarsComponent implements OnInit {
     this.carService.createCar(newCar).subscribe(
       (ok) => {
         alert('cars saved');
-        this.router.navigate(['person','detail', id])
+        this.router.navigate(['person', id])
       },
       (error) => { console.error('', error) }
     );

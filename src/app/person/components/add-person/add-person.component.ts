@@ -30,16 +30,17 @@ export class AddPersonComponent implements OnInit {
 
   ngOnInit() {
     const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
-
+console.log(idModified, 'hello')
     this.inizializzaForm();
     this.getPerson(idModified);
   }
 
   getPerson(idModified): void {
-    if (this.person) {
+    
       this.phonebook.getPersona(idModified).subscribe((person) => {
 
         this.personForm.get('firstName').setValue(person.name);
+        console.log(person.name)
         this.personForm.get('lastName').setValue(person.surname);
         this.personForm.get('fiscalCode').setValue(person.codFiscale);
         this.personForm.get('birthday').setValue(person.birthdate);
@@ -55,7 +56,7 @@ export class AddPersonComponent implements OnInit {
         this.person = person;
       
       });
-    }
+    
   }
   onSubmit() {
     if (this.person) {

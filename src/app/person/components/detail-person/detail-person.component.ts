@@ -63,7 +63,7 @@ export class DetailPersonComponent implements OnInit {
     this.route.navigate(['/person/search']);
   }
   addCar(){
-    this.route.navigate(['person',this.person.id, 'detail','addCar']);
+    this.route.navigate(['person',this.person.id,'car','addCar']);
   }
 
   delete(){

@@ -2,17 +2,17 @@
   "persons": [
     {
       "id": 1,
-      "nome": "Giorgia",
+      "nome": "HELLO",
       "cognome": "Ciulla",
-      "telefono": "222222",
+      "telefono": "07730761319",
       "eta": "0",
       "datanascita": "2021-03-01",
       "codFiscale": "DOSF4422J",
-      "email": "giorgia@ciulla.com",
-      "via": "'Via del Corso'",
-      "stato": "Italy",
-      "citta": "Roma",
-      "cap": "00100"
+      "email": "4h4@dww",
+      "via": "13 Carbis road",
+      "stato": "London",
+      "citta": "London",
+      "cap": "E147th"
     },
     {
       "id": 2,
@@ -55,6 +55,20 @@
       "citta": "Roma",
       "stato": "Italy",
       "cap": "00100"
+    },
+    {
+      "nome": "OLGA",
+      "cognome": "Ciulla",
+      "telefono": "07730761319",
+      "eta": "0",
+      "datanascita": "2021-05-07",
+      "codFiscale": "222222222",
+      "email": "44@dd5",
+      "via": "13 Carbis road",
+      "stato": "London",
+      "citta": "London",
+      "cap": "E147th",
+      "id": 5
     }
   ],
   "cars": [
@@ -89,6 +103,14 @@
       "marca": "ferrari",
       "cavalli": "111",
       "id": 10
+    },
+    {
+      "idPersona": 1,
+      "targa": "FINALLY",
+      "modello": "GIP",
+      "marca": "FINALLY",
+      "cavalli": "111",
+      "id": 11
     }
   ],
   "tipologicaMacchine": [
