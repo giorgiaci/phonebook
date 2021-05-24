@@ -31,7 +31,7 @@ export class AddPersonComponent implements OnInit {
   ngOnInit() {
     const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
 
-    this.inizializzaForm();
+    this.inizializzaForm(idModified);
     this.getPerson(idModified);
   }
 
@@ -120,7 +120,7 @@ export class AddPersonComponent implements OnInit {
   //   this.personForm.get('salti').setValue(666);
   // }
 
-  inizializzaForm() {
+  inizializzaForm(idModified) {
     let birthday = this.fb.control(undefined, [Validators.required]);
 
     this.personForm = this.fb.group({
@@ -140,7 +140,7 @@ export class AddPersonComponent implements OnInit {
       email: [undefined, 
         [Validators.required, EmailValidator.mailFormat,
         // custom async validator
-      ],  this.service.userValidator()],
+      ],  this.service.userValidator(idModified)],
       address: this.fb.group(
         {
           street: [undefined],

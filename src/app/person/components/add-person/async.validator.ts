@@ -7,6 +7,7 @@ import { Person } from '../../models/person.model';
 import { PersonConverter } from '../../converter/person.converter';
 import { PersonaDTO } from '../../dtos/persona.dto';
 import { PersonsService } from '../../services/persons.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -16,13 +17,22 @@ import { PersonsService } from '../../services/persons.service';
 export class UserValidators {
   private person: Person;
   private converterPersone: PersonConverter;
+  
 
-  constructor(private http: HttpClient, private personService:PersonsService) {}
-  userValidator(): AsyncValidatorFn {
+  constructor(private http: HttpClient, private personService:PersonsService, private activateRoute:ActivatedRoute) {}
+
+  ngOnInit(){
+    const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
+  }
+
+  userValidator(idModified): AsyncValidatorFn {
     return (control: AbstractControl): Observable<{ [key: string]: any } | null> => {
       return this.personService.findPersons(undefined, control.value).pipe(
         map(res => {
           // if email doesn't exist
+          if (idModified){
+            return null;
+          }
           if (res && res.length>0) {
             // return error
             return { emailDoesntExists: true };

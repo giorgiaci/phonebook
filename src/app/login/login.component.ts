@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       this.loginService.checkUser(newLogin.name, newLogin.password).subscribe(
         (rispostaServerGestita)=>{
           if(rispostaServerGestita===true ){
-           //  this.router.navigate([''])
+             this.router.navigate([''])
           }else{
             this.loginError = true;
           }         

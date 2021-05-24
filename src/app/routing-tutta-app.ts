@@ -15,13 +15,13 @@ const routes: Routes = [
   {
     path: 'person',
     
-  //  canActivateChild:[LoginGuard],
+    canActivateChild:[LoginGuard],
     loadChildren: () =>
       import('./person/person.module').then((m) => m.PersonModule),
 
   },
   {   path: 'login', component: LoginComponent},
-  {   path: '',      component: HomePageComponent// canActivate:[LoginGuard] 
+  {   path: '',      component: HomePageComponent, canActivate:[LoginGuard] 
   },
  
   {   path: '**',    component: PageNotFoundComponent },

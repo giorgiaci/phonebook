@@ -52,11 +52,10 @@
 
     <label> email: </label>
     <input autocomplete="off"type="text" formControlName="email" class="form-control" />
-    <span *ngIf="!personForm.get('email').valid && personForm.get('email').touched">
-    <p *ngIf="personForm.get('email').hasError('incorrectMailFormat')">Email format is invalid. <br></p>
-    <span style="color: red" *ngIf="personForm.get('email').errors?.emailDoesntExists">This email already exist <br></span>
-  </span>
-    
+    <span *ngIf="!personForm.get('email').valid && personForm.get('email').touched"> Please enter a valid email contact<br></span>
+    <!-- <p *ngIf="personForm.get('email').hasError('incorrectMailFormat')">Email format is invalid. <br></p>
+    <span style="color: red" *ngIf="personForm.get('email').errors?.emailDoesntExists">This email already exist <br></span> -->
+
   </div>
   <div class="col-md-4">
     <div formGroupName="address" autocomplete="off">

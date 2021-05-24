@@ -10,9 +10,7 @@ import { LoginService } from './login.service';
 export class AddHeaderInterceptor implements HttpInterceptor {
 
 
-constructor(private loginService:LoginService){
-  console.log('ora ale mi insegna una cosa')
-}
+constructor(private loginService:LoginService){}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Clone the request to add the new header

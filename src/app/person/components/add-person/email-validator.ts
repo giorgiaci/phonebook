@@ -7,7 +7,9 @@ export class EmailValidator {
     if(!control.value){
       return;
     } 
-
+if (control.value){
+  return null;
+}
     if (control.value != '' && (control.value.length <= 5 || !email.test(control.value))) {
       return { incorrectMailFormat: true };
     }

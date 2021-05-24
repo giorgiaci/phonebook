@@ -1,5 +1,7 @@
 <div class="container">
-  <button (click)="logOut()" type="button" class="btn btn-primary" style="margin-top: 50px; float: right">Log out</button>
+  <button type="button" (click)="goToLogin()"  class="btn btn-primary" style="margin-top: 50px; float: right" *ngIf="!loggedIn()" [disabled]="!loggedIn()">Login</button>
+  <button type="button" (click)="logOut()" class="btn btn-primary" style="margin-top: 50px; float: right" *ngIf="loggedIn()"> LogOut</button>
+
 
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">

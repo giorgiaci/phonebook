@@ -23,7 +23,7 @@ export class LoginService {
   private loggedIn = false;
   private _redirectUrl;
 
-  public checkUser(nome: string, pass: string): Observable<boolean> {
+  public checkUser(nome?: string, pass?: string): Observable<boolean> {
     return this.http
       .get<LoginModel[]>(
         `http://localhost:3000/login?name=${nome}&password=${pass}`
@@ -41,9 +41,6 @@ export class LoginService {
         })
       );
   }
-  // public logOut(){
-  //     this.username = undefined
-  // }
   public logOut() {
     this.username = undefined;
     this.loggedIn = false;
@@ -62,11 +59,4 @@ export class LoginService {
   public set redirectUrl(value) {
     this._redirectUrl = value;
   }
-
-  // public isLogged(): Observable<boolean> {
-  //   return of(true).pipe(
-  //     delay(1000),
-  //     tap((val) => (this.loggedIn = true))
-  //   );
-  // }
 }
