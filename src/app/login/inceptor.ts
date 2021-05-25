@@ -17,7 +17,7 @@ constructor(private loginService:LoginService){}
     if(req.url.indexOf('login') >= 0){
       return next.handle(req)
     }else{
-       const clonedRequest = req.clone({ headers: req.headers.set('Token', this.loginService.getUsername()+'ciao' ) });
+       const clonedRequest = req.clone({ headers: req.headers.set('Token', this.loginService.getUsername() ) });
 console.log('ricerca intercettata', clonedRequest)
     // Pass the cloned request instead of the original request to the next handle
     return next.handle(clonedRequest);

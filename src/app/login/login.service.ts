@@ -21,7 +21,8 @@ export class LoginService {
 
   private username;
   private loggedIn = false;
-  private _redirectUrl;
+  private _redirectUrl; 
+  login:LoginModel;
 
   public checkUser(nome?: string, pass?: string): Observable<boolean> {
     return this.http
@@ -41,6 +42,14 @@ export class LoginService {
         })
       );
   }
+  public getUser(id:number):Observable<LoginModel>{
+    return this.http.get<LoginModel>('http://localhost:3000/login/' + id)
+    .pipe(map(
+      (user:LoginModel)=>{
+      return user;
+    })
+    )
+  }
   public logOut() {
     this.username = undefined;
     this.loggedIn = false;
@@ -59,4 +68,5 @@ export class LoginService {
   public set redirectUrl(value) {
     this._redirectUrl = value;
   }
+
 }

@@ -105,14 +105,6 @@
       "id": 10
     },
     {
-      "idPersona": 1,
-      "targa": "FINALLY",
-      "modello": "GIP",
-      "marca": "FINALLY",
-      "cavalli": "111",
-      "id": 11
-    },
-    {
       "idPersona": null,
       "targa": "111",
       "modello": "GIP",

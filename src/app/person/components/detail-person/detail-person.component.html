@@ -2,52 +2,40 @@
 <br>
 <label>Queryparameter {{ queryParameter | json }}</label> -->
 <br>
-<table class="table table-bordered table-hover">
-    <thead  class="text-white bg-dark">
-      <tr>
-
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">FiscalCode</th>
-        <th scope="col">Birthday</th>
-        <th scope="col">Age</th>
-        <th scope="col">Phone number</th>
-        <th scope="col">Email</th>
-
-        <th scope="col">Street</th>
-        <th scope="col">City</th>
-        <th scope="col">State</th>
-        <th scope="col">Zip code</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf="person">
-
-        <td>{{person.name}}</td>
-        <td>{{person.surname}}</td>
-        <td>{{person.codFiscale}}</td>
-        <td>{{person.birthdate  | date }}</td>
-        <td>{{person.age}}</td>
-        <td>{{person.phoneNumber}}</td>
-        <td>{{person.email}}</td>
-
-        <td>{{person.street}}</td>
-        <td>{{person.city}}</td>
-        <td>{{person.state}}</td>
-        <td>{{person.zip}}</td>
-
-      </tr>
-
-    </tbody>
-  </table>
-
+<h3>Person details</h3>
+<div class="row" *ngIf="person">
+    <div class="col-6">
+      <ul class="list-group">
+      <li class="list-group-item">First name: {{person.name}}</li>
+      <li class="list-group-item">Last name: {{person.surname}}</li>
+      <li class="list-group-item">FiscalCode: {{person.codFiscale}}</li>
+      <li class="list-group-item">Birthday: {{person.birthdate  | date }}</li>
+      <li class="list-group-item">Age: {{person.age}}</li>
+      <li class="list-group-item">Phone number: {{person.phoneNumber}}</li>
+      <li class="list-group-item">Email: {{person.email}}</li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <ul class="list-group ">
+      <li class="list-group-item">Street: {{person.street}}</li>
+      <li class="list-group-item">City: {{person.city}}</li>
+      <li class="list-group-item">State: {{person.state}}</li>
+      <li class="list-group-item">Zip code: {{person.zip}}</li>
+    </ul>
+  </div>
+      
+    
+  
+</div>
+ 
+<br>
 
   <button class="btn btn-primary" style="margin-right: 15px;"(click)="gotoSearch()">Search Page</button>
   <button class="btn btn-danger"  (click)="delete()">Delete person</button>
 
   <br><br>
   <hr>
-
+<h2>Cars</h2>
   <app-details-cars  [cars]="cars" (modCar)="modifyCarInDetail($event)" (deleteCar)="deleteCarInDetail($event)"></app-details-cars>
 
   <button class="btn btn-success"  (click)="addCar()">Add a new car</button>

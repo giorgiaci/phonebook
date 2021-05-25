@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginModel } from 'src/app/login/login.model';
 import { LoginService } from 'src/app/login/login.service';
 import { Person } from 'src/app/person/models/person.model';
 import { PersonsService } from 'src/app/person/services/persons.service';
@@ -17,18 +18,26 @@ let $:any;
 export class HomePageComponent implements OnInit {
   
   username;
-  searchResult: Array<Person>;    
+  searchResult: Array<LoginModel>;    
   
   constructor(  private personService: PersonsService,
                 private loginService: LoginService,
                 private router:Router){ }
 
   ngOnInit() {
-    this.username = this.loginService.getUsername();
-    this.personService.getPersons().subscribe((persons) => {
-      this.searchResult = persons;
+    // this.username = this.loginService.getUsername().subscribe((user) => {
+    //   this.person = user;
+
+     this.username = this.loginService.getUsername();
+
+    // this.loginService.getUsername().subscribe((user) => {
+    //   this.searchResult = user;
       
-    });
+    // });
+    // this.loginService.getUsername().subscribe((user) => {
+    //   this.searchResult = user;
+      
+    // });
     // this.redirect();
   }
   // redirect(){

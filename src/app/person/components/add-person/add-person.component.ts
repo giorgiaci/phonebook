@@ -40,7 +40,6 @@ export class AddPersonComponent implements OnInit {
       this.phonebook.getPersona(idModified).subscribe((person) => {
 
         this.personForm.get('firstName').setValue(person.name);
-        console.log(person.name)
         this.personForm.get('lastName').setValue(person.surname);
         this.personForm.get('fiscalCode').setValue(person.codFiscale);
         this.personForm.get('birthday').setValue(person.birthdate);

@@ -1,0 +1,8 @@
+body{
+    background-color: deepskyblue;
+}
+#formStyle{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 40px 20px;
+}

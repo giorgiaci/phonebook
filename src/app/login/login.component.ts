@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     
   loginForm: FormGroup;
   loginError = false;
+  loginUser:LoginModel;
 
   constructor(private loginService: LoginService,
               private activateRoute: ActivatedRoute,
@@ -24,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.inizializzaForm();
-  
-  
+    const idUser = +this.activateRoute.snapshot.paramMap.get('name');
+     this.getUser(idUser);
   }
   onSubmit(){
     let loginValue = this.loginForm.value;
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.loginService.checkUser(newLogin.name, newLogin.password).subscribe(
         (rispostaServerGestita)=>{
           if(rispostaServerGestita===true ){
-             this.router.navigate([''])
+             this.router.navigate(['home'])
           }else{
             this.loginError = true;
           }         
@@ -51,6 +52,13 @@ export class LoginComponent implements OnInit {
       name: [undefined, Validators.required],
       password: [undefined, Validators.required]
         
+    })
+  }
+  getUser(idUser){
+    this.loginService.getUser(idUser).subscribe((user)=>{
+      this.loginForm.get('name').setValue(user.name);
+      this.loginForm.get('password').setValue('******');
+      this.loginUser = user;
     })
   }
 }
