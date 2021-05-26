@@ -1,7 +1,7 @@
 <form 
   autocomplete="off" 
   [formGroup]="loginForm" 
-  (ngSubmit)="onSubmit()"
+  (ngSubmit)="onSubmit()" 
   >
   <div class="col-md-5 mx-auto" id="formStyle" >
     <label>Name: </label>
@@ -19,7 +19,7 @@
     
     <span  *ngIf="loginError">Username e/o password errati</span>
     <br><br>
-    <button class="btn btn-primary" autocomplete="off" type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button class="btn btn-primary" autocomplete="off" type="submit" *ngIf="!loggedIn()" [disabled]="!loginForm.valid">Login</button>
     
    
 

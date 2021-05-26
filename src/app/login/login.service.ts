@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable, Input, OnDestroy } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, filter, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { LoginModel } from './login.model';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
 
 
 
@@ -20,6 +21,7 @@ export class LoginService {
   }
 
   private username;
+  private password;
   private loggedIn = false;
   private _redirectUrl; 
   login:LoginModel;
@@ -35,6 +37,7 @@ export class LoginService {
             this.loggedIn = false;
           } else {
             this.username = nome;
+            this.password = pass;
             this.loggedIn = true;
             this.route.navigateByUrl(this.redirectUrl);
           }
@@ -42,22 +45,30 @@ export class LoginService {
         })
       );
   }
-  public getUser(id:number):Observable<LoginModel>{
-    return this.http.get<LoginModel>('http://localhost:3000/login/' + id)
+  public getUser(nome, pass):Observable<LoginModel>{
+    return this.http.get<LoginModel>( `http://localhost:3000/login?name=${nome}&password=${pass}`)
     .pipe(map(
       (user:LoginModel)=>{
       return user;
     })
     )
   }
+
   public logOut() {
     this.username = undefined;
+    this.password = undefined;
     this.loggedIn = false;
+    sessionStorage.clear();
+
+   
   }
+  
   public getUsername() {
     return this.username;
   }
-
+  public getToken(){
+    return this.password
+  }
   public isLogged() {
     return this.loggedIn;
   }

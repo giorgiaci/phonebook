@@ -1,64 +1,78 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 import { LoginService } from 'src/app/login/login.service';
 import { LoginModel } from './login.model';
-import { HttpHeaders } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-    
+export class LoginComponent {
+
   loginForm: FormGroup;
   loginError = false;
-  loginUser:LoginModel;
+  loginUser: LoginModel;
+  isLogged = this.activateRoute.snapshot.paramMap.get('login');
 
   constructor(private loginService: LoginService,
-              private activateRoute: ActivatedRoute,
-              private fb: FormBuilder,
-              private router: Router) { }
+    private activateRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    private router: Router) {
 
-  ngOnInit(): void {
     this.inizializzaForm();
-    const idUser = +this.activateRoute.snapshot.paramMap.get('name');
-     this.getUser(idUser);
+    
   }
-  onSubmit(){
+
+
+  onSubmit() {
+
     let loginValue = this.loginForm.value;
-    
+
     let newLogin = new LoginModel();
-      newLogin.name = loginValue.name;
-      newLogin.password = loginValue.password;
-    
-      this.loginService.checkUser(newLogin.name, newLogin.password).subscribe(
-        (rispostaServerGestita)=>{
-          if(rispostaServerGestita===true ){
-             this.router.navigate(['home'])
-          }else{
-            this.loginError = true;
-          }         
-        },
-        (error) => { console.error('utente non trovato', error) }
-     );
+    newLogin.name = loginValue.name;
+    newLogin.password = loginValue.password;
+    this.loginForm.patchValue({
+      name: this.loginService.getUsername(),
+      password: this.loginService.getToken(),
+    })
+    this.loginService.checkUser(newLogin.name, newLogin.password).subscribe(
+
+      (rispostaServerGestita) => {
+        if (rispostaServerGestita === true) {
+          this.router.navigate(['home'])
+        } else {
+          this.loginError = true;
+        }
+      },
+      (error) => { console.error('utente non trovato', error) }
+    );
   }
+
+
   inizializzaForm() {
-    this.loginForm = this.fb.group({
-     
-      name: [undefined, Validators.required],
-      password: [undefined, Validators.required]
-        
-    })
+ if(this.isLogged) {
+
+      this.loginForm.patchValue({
+        name: this.loginService.getUsername(),
+        password: this.loginService.getToken(),
+      })
+    }  else {
+      this.loginForm = this.fb.group({
+
+        name: [null, Validators.required],
+        password: [null, Validators.required]
+
+      })
+    }
+
   }
-  getUser(idUser){
-    this.loginService.getUser(idUser).subscribe((user)=>{
-      this.loginForm.get('name').setValue(user.name);
-      this.loginForm.get('password').setValue('******');
-      this.loginUser = user;
-    })
+
+
+  loggedIn() {
+    return this.loginService.getUsername()
   }
 }

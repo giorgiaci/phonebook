@@ -30,9 +30,7 @@ export class AddPersonComponent implements OnInit {
 
   ngOnInit() {
     const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
-
-    this.inizializzaForm(idModified);
-    this.getPerson(idModified);
+    this.inizializzaForm(idModified);    
   }
 
   getPerson(idModified): void {
