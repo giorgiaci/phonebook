@@ -8,35 +8,21 @@ import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 
-
-
 @Injectable({ providedIn: 'root' })
-
-
 export class LoginService {
- 
-
-  constructor(private http: HttpClient, private route: Router) {
- 
-  }
+  constructor(private http: HttpClient, private route: Router) {}
 
   private username;
   private password;
   private loggedIn = false;
-<<<<<<< Updated upstream
-  private _redirectUrl; 
-  login:LoginModel;
-=======
 
-  private _redirectUrl; 
-  login:LoginModel;
-  loginForm:FormGroup;
+  private _redirectUrl;
+  login: LoginModel;
+  loginForm: FormGroup;
 
->>>>>>> Stashed changes
-
-  public checkUser(nome?: string, pass?: string): Observable<boolean> {
+  public checkUser(nome: string, pass: string): Observable<boolean> {
     return this.http
-      .get<LoginModel[]>(
+      .get<LoginModel>(
         `http://localhost:3000/login?name=${nome}&password=${pass}`
       )
       .pipe(
@@ -53,33 +39,36 @@ export class LoginService {
         })
       );
   }
-  public getUser(nome, pass):Observable<LoginModel>{
-    return this.http.get<LoginModel>( `http://localhost:3000/login?name=${nome}&password=${pass}`)
-    .pipe(map(
-      (user:LoginModel)=>{
-      return user;
-    })
-    )
+  public getUser(nome, pass): Observable<LoginModel> {
+    return this.http
+      .get<LoginModel>(
+        `http://localhost:3000/login?name=${nome}&password=${pass}`
+      )
+      .pipe(
+        map((user: LoginModel) => {
+          return user;
+        })
+      );
   }
 
   public logOut() {
-    this.username = undefined;
+    sessionStorage.clear();
+    window.location.reload();
+    
+    setInterval(() => {
+        this.username = undefined;
     this.password = undefined;
     this.loggedIn = false;
-    sessionStorage.clear();
-
+      }, 5000);
    
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
+    
   }
-  
+
   public getUsername() {
     return this.username;
   }
-  public getToken(){
-    return this.password
+  public getToken() {
+    return this.password;
   }
   public isLogged() {
     return this.loggedIn;
@@ -91,5 +80,4 @@ export class LoginService {
   public set redirectUrl(value) {
     this._redirectUrl = value;
   }
-
 }

@@ -9,7 +9,7 @@
     <span *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">
         <span *ngIf="loginForm.get('name').errors['required']">This field is required <br></span>
     </span>
-<br>
+    <br>
     <label>Password: </label>
     <input autocomplete="off" type="text"  formControlName="password"  class="form-control">
     <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
@@ -25,9 +25,9 @@
 
   </div>
 
-  <!-- <hr>
+  <hr>
   <p>Form Value: {{ loginForm.value | json }}</p>
-  <p>Form Status: {{ loginForm.status }}</p> -->
+  <p>Form Status: {{ loginForm.status }}</p>
 
 
 
