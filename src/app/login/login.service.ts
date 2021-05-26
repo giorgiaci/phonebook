@@ -3,9 +3,7 @@ import { Observable, of } from 'rxjs';
 import { delay, filter, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { LoginModel } from './login.model';
-import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
-import { HttpHeaders } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 
 @Injectable({ providedIn: 'root' })
@@ -13,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient, private route: Router) {}
 
   private username;
-  private password;
+  private userpassword;
   private loggedIn = false;
 
   private _redirectUrl;
@@ -31,7 +29,7 @@ export class LoginService {
             this.loggedIn = false;
           } else {
             this.username = nome;
-            this.password = pass;
+            this.userpassword = pass;
             this.loggedIn = true;
             this.route.navigateByUrl(this.redirectUrl);
           }
@@ -57,8 +55,8 @@ export class LoginService {
     
     setInterval(() => {
         this.username = undefined;
-    this.password = undefined;
-    this.loggedIn = false;
+        this.userpassword = undefined;
+        this.loggedIn = false;
       }, 5000);
    
     
@@ -68,7 +66,7 @@ export class LoginService {
     return this.username;
   }
   public getToken() {
-    return this.password;
+    return this.userpassword;
   }
   public isLogged() {
     return this.loggedIn;

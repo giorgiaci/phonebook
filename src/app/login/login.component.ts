@@ -15,7 +15,7 @@ import { LoginModel } from './login.model';
 export class LoginComponent {
   loginForm: FormGroup;
   loginError = false;
-  public destroyed = new Subject<any>();
+
   constructor(
     private loginService: LoginService,
     private activateRoute: ActivatedRoute,
@@ -63,10 +63,6 @@ export class LoginComponent {
       password: this.loginService.getToken(),
     });
    
-  }
-  ngOnDestroy(): void {
-    this.destroyed.next();
-    this.destroyed.complete();
   }
   loggedIn() {
     return this.loginService.getUsername();
