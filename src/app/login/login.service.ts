@@ -23,8 +23,16 @@ export class LoginService {
   private username;
   private password;
   private loggedIn = false;
+<<<<<<< Updated upstream
   private _redirectUrl; 
   login:LoginModel;
+=======
+
+  private _redirectUrl; 
+  login:LoginModel;
+  loginForm:FormGroup;
+
+>>>>>>> Stashed changes
 
   public checkUser(nome?: string, pass?: string): Observable<boolean> {
     return this.http
@@ -61,6 +69,10 @@ export class LoginService {
     sessionStorage.clear();
 
    
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   }
   
   public getUsername() {
