@@ -23,8 +23,7 @@ export class LoginComponent {
     private router: Router
   ) {
     this.inizializzaForm();
-    this.getUser();
-  }
+    }
 
   onSubmit() {
     let loginValue = this.loginForm.value;
@@ -36,10 +35,6 @@ export class LoginComponent {
     this.loginService.checkUser(newLogin.name, newLogin.password).subscribe(
       (rispostaServerGestita) => {
         if (rispostaServerGestita === true) {
-          this.loginForm.patchValue({
-            name: this.loginService.getUsername(),
-            password: this.loginService.getToken(),
-          });
           this.router.navigate(['home']);
         } else {
           this.loginError = true;
@@ -57,13 +52,7 @@ export class LoginComponent {
       password: [null, Validators.required],
     });
   }
-  getUser() {
-    this.loginForm.patchValue({
-      name: this.loginService.getUsername(),
-      password: this.loginService.getToken(),
-    });
-   
-  }
+ 
   loggedIn() {
     return this.loginService.getUsername();
   }

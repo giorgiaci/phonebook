@@ -49,17 +49,10 @@ export class LoginService {
       );
   }
 
-  public logOut() {
-    sessionStorage.clear();
-    window.location.reload();
-    
-    setInterval(() => {
+  public logOut() {   
         this.username = undefined;
         this.userpassword = undefined;
-        this.loggedIn = false;
-      }, 5000);
-   
-    
+        this.loggedIn = false;  
   }
 
   public getUsername() {
