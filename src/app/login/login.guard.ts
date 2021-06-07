@@ -20,7 +20,6 @@ export class LoginGuard implements CanActivate {
 
     // Store the attempted URL for redirecting
     this.loginService.redirectUrl = url;
-    alert('effettua il login')
     // Redirect to the login page
     return this.router.parseUrl('login');
   }
