@@ -23,7 +23,7 @@
     <label>Last name:</label>
     <input autocomplete="off" type="text" formControlName="lastName" id="name" class="form-control"/>
     <span *ngIf="!personForm.get('lastName').valid && personForm.get('lastName').touched">
-      <span *ngIf="personForm.get('firstName').errors['required']">This field is required <br></span>
+      <span *ngIf="personForm.get('lastName').errors['required']">This field is required <br></span>
     </span>
 
     <label> FiscalCode:</label>

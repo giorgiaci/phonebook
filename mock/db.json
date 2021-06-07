@@ -130,14 +130,14 @@
   "login": [
     {
       "id": 1,
-      "nome": "Giorgia",
+      "name": "Giorgia",
       "cognomePersona": "Ciulla",
       "password": "12345",
       "ruolo": "studentessa"
     },
     {
       "id": 2,
-      "nome": "Alessandro",
+      "name": "Alessandro",
       "cognomePersona": "Avolio",
       "password": "12345",
       "ruolo": "Insegnante"
