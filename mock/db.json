@@ -90,14 +90,6 @@
     },
     {
       "idPersona": 1,
-      "targa": "132312",
-      "modello": "GIP",
-      "marca": "fiat",
-      "cavalli": "111",
-      "id": 9
-    },
-    {
-      "idPersona": 1,
       "targa": "123467",
       "modello": "GIP",
       "marca": "ferrari",

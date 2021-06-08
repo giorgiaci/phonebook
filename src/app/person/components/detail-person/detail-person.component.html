@@ -6,21 +6,20 @@
 <div class="row" *ngIf="person">
     <div class="col-6">
       <ul class="list-group">
-      <li class="list-group-item">First name: {{person.name}}</li>
-      <li class="list-group-item">Last name: {{person.surname}}</li>
-      <li class="list-group-item">FiscalCode: {{person.codFiscale}}</li>
-      <li class="list-group-item">Birthday: {{person.birthdate  | date }}</li>
-      <li class="list-group-item">Age: {{person.age}}</li>
-      <li class="list-group-item">Phone number: {{person.phoneNumber}}</li>
-      <li class="list-group-item">Email: {{person.email}}</li>
+      <li class="list-group-item"><span class="data-bold">Name</span>: {{person.name}}</li>
+      <li class="list-group-item"><span class="data-bold">Last name</span>: {{person.surname}}</li>
+      <li class="list-group-item"><span class="data-bold">FiscalCode</span>: {{person.codFiscale}}</li>
+      <li class="list-group-item"><span class="data-bold">Birthday</span>: {{person.birthdate  | date }} | <span class="data-bold">Age</span>: {{person.age}}</li>
+      <li class="list-group-item"><span class="data-bold">Phone number</span>: {{person.phoneNumber}}</li>
+      <li class="list-group-item"><span class="data-bold">Email</span>: {{person.email}}</li>
     </ul>
   </div>
   <div class="col-6">
     <ul class="list-group ">
-      <li class="list-group-item">Street: {{person.street}}</li>
-      <li class="list-group-item">City: {{person.city}}</li>
-      <li class="list-group-item">State: {{person.state}}</li>
-      <li class="list-group-item">Zip code: {{person.zip}}</li>
+      <li class="list-group-item"><span class="data-bold">Street</span>: {{person.street}}</li>
+      <li class="list-group-item"><span class="data-bold">City</span>: {{person.city}}</li>
+      <li class="list-group-item"><span class="data-bold">State</span>: {{person.state}}</li>
+      <li class="list-group-item"><span class="data-bold">Zip code</span>: {{person.zip}}</li>
     </ul>
   </div>
       
@@ -29,8 +28,7 @@
 </div>
  
 <br>
-
-  <button class="btn btn-primary" style="margin-right: 15px;"(click)="gotoSearch()">Search Page</button>
+  <button class="btn btn-success" [routerLink]="['/person', person.id, 'edit']" >Edit person</button>
   <button class="btn btn-danger"  (click)="delete()">Delete person</button>
 
   <br><br>
@@ -42,4 +40,5 @@
   <br><br>
   <hr>
 
+  <button class="btn btn-primary" style="margin-right: 15px;"(click)="gotoSearch()">Indietro</button>
 

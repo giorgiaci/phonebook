@@ -1,9 +1,10 @@
 <form 
+  class="col-4 mx-auto"
   autocomplete="off" 
   [formGroup]="loginForm" 
   (ngSubmit)="onSubmit()" 
   >
-  <div class="col-md-5 mx-auto" id="formStyle" >
+  <div  id="formStyle" >
     <label>Name: </label>
     <input autocomplete="off" type="text"  formControlName="name"  class="form-control">
     <span *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">
