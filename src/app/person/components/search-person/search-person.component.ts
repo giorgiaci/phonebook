@@ -55,6 +55,12 @@ export class SearchPersonComponent implements OnInit {
         }
       });
   }
+  resetForm(){
+    this.searchForm.reset();
+    this.phonebook.getPersons().subscribe(
+      (p)=>{this.searchResult = p;}
+    )
+  }
   // this.phonebook.find2(formValue).subscribe(
 
   //   (persons) => {
