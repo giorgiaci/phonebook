@@ -28,15 +28,17 @@ export class AddCarsComponent implements OnInit {
                ) { }
 
   ngOnInit() {
-    const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
+    const idModified = +this.activateRoute.snapshot.paramMap.get('idCar');
     this.inizializzaForm();
     this.getCar(idModified);
     this.getTipologica();    
   }
-
+getmacchina(){
+  
+}
   getCar(idModified){
-    
-    this.carService.getSingleCarByPerson(idModified).subscribe((c) => {      
+    if(idModified){
+          this.carService.getCar(idModified).subscribe((c) => {      
      
       this.carsForm.get('carplate').setValue(c.carplate);
       this.carsForm.get('brand').setValue(c.brand);
@@ -45,6 +47,8 @@ export class AddCarsComponent implements OnInit {
       
       this.car = c;
     });
+    }
+
   
   }
   onSubmit() { 
@@ -78,7 +82,7 @@ export class AddCarsComponent implements OnInit {
   }
 
   onSubmitModified() {
-    
+    const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
     let formValue = this.carsForm.value;
     this.car.carplate= formValue.carplate;
     this.car.brand= formValue.brand;
@@ -88,7 +92,7 @@ export class AddCarsComponent implements OnInit {
     this.carService.modifyCarByPerson(this.car).subscribe(
       (ok)=>{
         alert('car modified');
-        // this.router.navigate(['person', id]);
+       this.router.navigate(['person', id]);
       },
       (error)=>{
         console.error('', error)

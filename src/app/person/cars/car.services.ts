@@ -108,7 +108,7 @@ export class CarService {
   }
   public modifyCarByPerson(car:Car):Observable<Car>{
     let dto = this.macchineConverter.toDto(car);
-    return this.http.put<macchinaDTO>(`http://localhost:3000/cars/cars?idPersona=`, dto).pipe(
+    return this.http.put<macchinaDTO>(`http://localhost:3000/cars/${car.id}`, dto).pipe(
       map((carBackEnd:macchinaDTO) => {
         return this.macchineConverter.toModel(carBackEnd);
       })
