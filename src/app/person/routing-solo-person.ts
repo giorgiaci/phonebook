@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
-import { LoginGuard } from '../login/login.guard';
+// import { LoginGuard } from '../login/login.guard';
 
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { DetailPersonComponent } from './components/detail-person/detail-person.component';

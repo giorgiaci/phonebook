@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/login/login.service';
+// import { LoginService } from 'src/app/login/login.service';
 
 
 
@@ -14,12 +14,12 @@ export class ModaleComponent implements OnInit, AfterViewInit {
 
   modalInstance:any;
   username;
-  constructor(private loginService:LoginService) { }
+  // constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(){
-    this.username = this.loginService.getUsername();
+   // this.username = this.loginService.getUsername();
 
     this.modalInstance = window['$']('#myModal').modal({show:false})
   }

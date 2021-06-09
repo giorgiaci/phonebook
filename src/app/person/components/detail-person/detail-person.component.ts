@@ -90,7 +90,7 @@ export class DetailPersonComponent implements OnInit {
     this.carService.modifyCarByPerson(car)
       .subscribe(
         (ok) => {
-          this.route.navigate(['person', this.person.id, 'addCar', car])
+          
         }
       )
   }
