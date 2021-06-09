@@ -59,19 +59,36 @@ export class CarService {
       })
     );
   }
+  // public getSingleCarByPerson(id: number): Observable<Car> {
+  //   var url: string = 'http://localhost:3000/cars?idPersona=' + id;
+  //   return this.http.get<macchinaDTO>(url).pipe(
+  //     map((macchinaBackEnd: macchinaDTO): Car => {
+  //       if (!macchinaBackEnd) {
+  //         return undefined;
+  //       }       
+  //       map((macchinaDalBackEnd: macchinaDTO)=>{
+  //         return this.macchineConverter.toModel(macchinaDalBackEnd);
+  //       }) 
+  //     })
+  //   );
+  // }
   public getSingleCarByPerson(id: number): Observable<Car> {
-    var url: string = 'http://localhost:3000/cars?idPersona=' + id;
 
-    return this.http.get<macchinaDTO>(url).pipe(
-      map((macchinaBackEnd: macchinaDTO): Car => {
-        if (!macchinaBackEnd) {
-          return undefined;
-        }       
-        map((macchinaDalBackEnd: macchinaDTO)=>{
-          return this.macchineConverter.toModel(macchinaDalBackEnd);
-        }) 
-      })
-    );
+    return this.http.get<macchinaDTO>('http://localhost:3000/cars?idPersona=' + id)
+      .pipe(       
+         
+        map(
+          (macchinaDalBackEnd: macchinaDTO): Car => {
+            if (!macchinaDalBackEnd) {
+            return undefined;
+          }
+          let macchina = this.macchineConverter.toModel(
+              macchinaDalBackEnd
+            );
+            return macchina;
+          }
+        )
+      );
   }
   public createCar(car: Car): Observable<Car> {
     let dto = this.macchineConverter.toDto(car);
@@ -89,9 +106,9 @@ export class CarService {
         })
     )
   }
-  public modifyCar(car:Car):Observable<Car>{
+  public modifyCarByPerson(car:Car):Observable<Car>{
     let dto = this.macchineConverter.toDto(car);
-    return this.http.put<macchinaDTO>(`http://localhost:3000/cars/${car.id}`, dto).pipe(
+    return this.http.put<macchinaDTO>(`http://localhost:3000/cars/cars?idPersona=`, dto).pipe(
       map((carBackEnd:macchinaDTO) => {
         return this.macchineConverter.toModel(carBackEnd);
       })

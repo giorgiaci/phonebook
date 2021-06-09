@@ -19,26 +19,23 @@ export class DetailsCarsComponent implements OnInit {
   @Output() deleteCar = new EventEmitter<number>();
   @Output() modifyCar = new EventEmitter<Car>();
   selectedCar: any;
-  id;
+  
   constructor(private route: Router, private activateRoute: ActivatedRoute, private carService:CarService) { }
 
   ngOnInit(): void {
-   this.id = +this.activateRoute.snapshot.paramMap.get('idPerson');
-    this.carService.getSingleCarByPerson(this.id).subscribe(
-      c=> {this.car = c}
-    )
   }
 
   deleteCarInDetail(idMacchina: number) {
     this.deleteCar.emit(idMacchina)
   }
 
-  // modifyCarInDetail(car:Car) {
-  //   this.modifyCar.emit(car);    
-  // }
+  modifyCarInDetail(car:Car) {
+    this.modifyCar.emit(car);    
+  }
 
-  goTomodifyCar(){   
-    this.route.navigate(['car',this.id,'edit'], {relativeTo:this.activateRoute});
+  goTomodifyCar(){  
+     
+   // this.route.navigate(['car',this.car.id,'edit'], {relativeTo:this.activateRoute});
   }
 
   setRow(car: Car) {

@@ -14,12 +14,12 @@ import { SearchCarsComponent } from './components/search-cars/search-cars.compon
           path: 'addCar', component: AddCarsComponent
         },
         {
-          path: ':idCar',
-
-          
+          path: ':idCar',          
           children:[
-            {path:'', component:DetailsCarsComponent},
-            { path:'edit', component:AddCarsComponent }
+            { 
+              path:'edit',
+              component:AddCarsComponent 
+            }
           ]
         }
     ]

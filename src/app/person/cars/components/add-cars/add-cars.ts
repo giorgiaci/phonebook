@@ -16,34 +16,34 @@ import { EngineValidator } from './engine-validator';
 })
 export class AddCarsComponent implements OnInit {
 
-  addResult: Array<Car>;
-  carsForm: FormGroup;
-  person: Person;
-  car:Car;
-  carSvc:CarService;
-
+  carsForm: FormGroup;  
+  car:Car;   
   arrayTipologiche: Array <TipologicaModel>;
 
   constructor( private carService: CarService,
-               private tipologicaService: TipologicaService,
-               private activateRoute: ActivatedRoute,
                private fb: FormBuilder,
-               private router: Router) { }
+               private tipologicaService: TipologicaService,
+               private router: Router,
+               private activateRoute: ActivatedRoute               
+               ) { }
 
-  ngOnInit(): void {
-    const idModified = +this.activateRoute.snapshot.paramMap.get('idCar');
+  ngOnInit() {
+    const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
     this.inizializzaForm();
-    this.getTipologica();
     this.getCar(idModified);
+    this.getTipologica();    
   }
+
   getCar(idModified){
-    this.carSvc.getCar(idModified).subscribe((car)=>{
-      this.carsForm.get('carplate').setValue(car.carplate);
-      this.carsForm.get('brand').setValue(car.brand);
-      this.carsForm.get('engine').setValue(car.engine);
-      this.carsForm.get('model').setValue(car.model);
-      this.car=car;
-    })
+    this.carService.getSingleCarByPerson(idModified).subscribe((c) => {      
+     
+      this.carsForm.get('carplate').setValue(c.carplate);
+      this.carsForm.get('brand').setValue(c.brand);
+      this.carsForm.get('engine').setValue(c.engine);
+      this.carsForm.get('model').setValue(c.model);      
+      
+      this.car = c;
+    });
   }
   onSubmit() { 
     if(this.car){
@@ -76,30 +76,31 @@ export class AddCarsComponent implements OnInit {
   }
 
   onSubmitModified() {
+    const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
     let formValue = this.carsForm.value;
     this.car.carplate= formValue.carplate;
     this.car.brand= formValue.brand;
     this.car.engine= formValue.engine;
     this.car.model= formValue.model;
 
-    this.carSvc.modifyCar(this.car).subscribe(
+    this.carService.modifyCarByPerson(this.car).subscribe(
       (ok)=>{
         alert('car modified');
+        this.router.navigate(['person', id]);
       },
       (error)=>{
         console.error('', error)
       }
     )
   }
+  
 
   inizializzaForm() {
-    this.carsForm = this.fb.group({
-     
-      carplate: [undefined, Validators.required],
-      model: [undefined, Validators.required],
+    this.carsForm = this.fb.group({     
+      carplate: [undefined, Validators.required],     
       brand: [undefined, Validators.required],
-      engine: [undefined, [Validators.required, EngineValidator.lengthFormat(50, 200)]]
-      
+      engine: [undefined, [Validators.required, EngineValidator.lengthFormat(50, 200)]],
+      model: [undefined, Validators.required]
     })
   }
  

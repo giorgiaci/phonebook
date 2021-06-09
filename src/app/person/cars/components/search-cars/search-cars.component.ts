@@ -16,9 +16,9 @@ export class SearchCarsComponent implements OnInit {
   constructor(private service: CarService) { }
 
   ngOnInit() {
-    this.service.getCars().subscribe((cars)=>{
-      this.searchResult = cars;
-    });
+    // this.service.getCars().subscribe((cars)=>{
+    //   this.searchResult = cars;
+    // });
     
   }
 

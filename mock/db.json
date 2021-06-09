@@ -73,23 +73,15 @@
   ],
   "cars": [
     {
+      "id": 1,
       "idPersona": 2,
       "targa": "iuwei22",
       "modello": "decappottabile",
       "marca": "ferrari",
-      "cavalli": "200",
-      "id": 3
+      "cavalli": "200"
     },
     {
-      "idPersona": null,
-      "targa": "111",
-      "modello": "GIP",
-      "marca": "1111",
-      "cavalli": "111",
-      "id": 12
-    },
-    {
-      "id": 13,
+      "id": 2,
       "idPersona": 1,
       "targa": "nuovaCar",
       "modello": "UTILITARIA",

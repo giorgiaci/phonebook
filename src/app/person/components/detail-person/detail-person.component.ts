@@ -14,29 +14,29 @@ import { PersonsService } from '../../services/persons.service';
   styleUrls: ['./detail-person.component.css'],
 })
 export class DetailPersonComponent implements OnInit {
- 
+
   personForm: FormGroup;
   person: Person;
   cars: Car[];
-  car:Car;
-// idPerson: string;
-// queryParameter: any;
-// subscriptions: Subscription [] = [] ;
-  
+  car: Car;
+  // idPerson: string;
+  // queryParameter: any;
+  // subscriptions: Subscription [] = [] ;
+
   constructor(private route: Router,
-              private activateRoute: ActivatedRoute,
-              private personService: PersonsService,
-              private carService: CarService) { } 
- 
- ngOnInit(): void {
-   
-  const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
-  
+    private activateRoute: ActivatedRoute,
+    private personService: PersonsService,
+    private carService: CarService) { }
+
+  ngOnInit(): void {
+
+    const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
+
     this.getPerson(id);
     this.getCars(id);
 
 
-     //   this.subscriptions.push(this.activateRoute.paramMap.subscribe((params)=>{
+    //   this.subscriptions.push(this.activateRoute.paramMap.subscribe((params)=>{
     //       this.idPerson=params.get('idPerson');
     //   })
     // )
@@ -45,51 +45,54 @@ export class DetailPersonComponent implements OnInit {
     // }))
 
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     // this.subscriptions.forEach(s=>s.unsubscribe());
   }
 
   getPerson(id): void {
-   
+
     this.personService.getPersona(id)
-      .subscribe(person => this.person = person); 
+      .subscribe(person => this.person = person);
   }
-  getCars(idPersona) : void{
+  getCars(idPersona): void {
     this.carService.getCarsByPerson(idPersona)
-    .subscribe(cars => this.cars = cars)
+      .subscribe(cars => this.cars = cars)
   }
-  
+
   gotoSearch() {
     this.route.navigate(['/person/search']);
   }
-  addCar(){
-    this.route.navigate(['person',this.person.id,'car','addCar']);
+  addCar() {
+    this.route.navigate(['person', this.person.id, 'car', 'addCar']);
   }
 
-  delete(){
+  delete() {
     this.personService
-    .deletePerson(this.person.id)
-    .subscribe(
-      (ok)=>{alert('person deleted');
-      this.route.navigate(['person', 'search']);}
-    );
+      .deletePerson(this.person.id)
+      .subscribe(
+        (ok) => {
+          alert('person deleted');
+          this.route.navigate(['person', 'search']);
+        }
+      );
   }
-  deleteCarInDetail(idMacchina){
+  deleteCarInDetail(idMacchina) {
     this.carService
-    .deleteCar(idMacchina)
-    .subscribe(
-      (ok)=>{alert('car deleted');
-        this.getCars(this.person.id);
-      }
-    );
+      .deleteCar(idMacchina)
+      .subscribe(
+        (ok) => {
+          alert('car deleted');
+          this.getCars(this.person.id);
+        }
+      );
   }
-modifyCarInDetail(car){
-  this.carService.modifyCar(car)
-  .subscribe(
-    (ok)=>{alert('car modified');
-    this.getCars(this.person.id);
+  modifyCarInDetail(car: Car) {
+    this.carService.modifyCarByPerson(car)
+      .subscribe(
+        (ok) => {
+          this.route.navigate(['person', this.person.id, 'addCar', car])
+        }
+      )
   }
-  )
-}
- 
+
 }
