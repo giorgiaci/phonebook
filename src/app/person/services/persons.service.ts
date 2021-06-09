@@ -15,7 +15,6 @@ import { Person } from '../models/person.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PersonConverter } from '../converter/person.converter';
 import { PersonaDTO } from '../dtos/persona.dto';
-import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({ providedIn: 'root' })
