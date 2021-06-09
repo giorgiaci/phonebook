@@ -3,6 +3,7 @@ import { Car } from '../../car-models/car.model';
 import { Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Person } from 'src/app/person/models/person.model';
+import { CarService } from '../../car.services';
 
 
 @Component({
@@ -13,29 +14,33 @@ import { Person } from 'src/app/person/models/person.model';
 })
 export class DetailsCarsComponent implements OnInit {
   person:Person;
-car:Car;
+  car:Car;
   @Input() cars: Car[];
   @Output() deleteCar = new EventEmitter<number>();
   @Output() modifyCar = new EventEmitter<Car>();
   selectedCar: any;
-  idPerson = +this.activateRoute.snapshot.paramMap.get('idPerson');
-  constructor(private route: Router, private activateRoute: ActivatedRoute) { }
+  id;
+  constructor(private route: Router, private activateRoute: ActivatedRoute, private carService:CarService) { }
 
   ngOnInit(): void {
-  
-    const idCar = +this.activateRoute.snapshot.paramMap.get('idCar');
+   this.id = +this.activateRoute.snapshot.paramMap.get('idPerson');
+    this.carService.getSingleCarByPerson(this.id).subscribe(
+      c=> {this.car = c}
+    )
   }
 
   deleteCarInDetail(idMacchina: number) {
-
     this.deleteCar.emit(idMacchina)
+  }
 
+  // modifyCarInDetail(car:Car) {
+  //   this.modifyCar.emit(car);    
+  // }
+
+  goTomodifyCar(){   
+    this.route.navigate(['car',this.id,'edit'], {relativeTo:this.activateRoute});
   }
-  modifyCarInDetail(car: Car) {
-    this.modifyCar.emit(car);
-    this.route.navigate(['person', this.idPerson, 'car','idCar'])
-    console.warn('hello')
-  }
+
   setRow(car: Car) {
     if (this.selectedCar === car) {
       this.selectedCar = undefined;

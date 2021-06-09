@@ -1,6 +1,5 @@
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {  AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Person } from '../../models/person.model';
 import { PersonsService } from '../../services/persons.service';
@@ -30,7 +29,8 @@ export class AddPersonComponent implements OnInit {
 
   ngOnInit() {
     const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
-    this.inizializzaForm(idModified);    
+    this.inizializzaForm(idModified);  
+    this.getPerson(idModified);  
   }
 
   getPerson(idModified): void {

@@ -59,7 +59,20 @@ export class CarService {
       })
     );
   }
+  public getSingleCarByPerson(id: number): Observable<Car> {
+    var url: string = 'http://localhost:3000/cars?idPersona=' + id;
 
+    return this.http.get<macchinaDTO>(url).pipe(
+      map((macchinaBackEnd: macchinaDTO): Car => {
+        if (!macchinaBackEnd) {
+          return undefined;
+        }       
+        map((macchinaDalBackEnd: macchinaDTO)=>{
+          return this.macchineConverter.toModel(macchinaDalBackEnd);
+        }) 
+      })
+    );
+  }
   public createCar(car: Car): Observable<Car> {
     let dto = this.macchineConverter.toDto(car);
     return this.http.post<macchinaDTO>('http://localhost:3000/cars', dto).pipe(

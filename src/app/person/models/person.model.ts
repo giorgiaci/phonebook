@@ -1,3 +1,5 @@
+import { Car } from "../cars/car-models/car.model";
+
 export class Person {
   private _id: number;
   private _name: string;
@@ -11,12 +13,26 @@ export class Person {
   private _city: string;
   private _state: string;
   private _zip: string;
-
+  private _car: Car; 
+  private _carList: Car[];
+  
 
   constructor(name?: string, surname?: string, phoneNumber?: number) {
     this._name = name;
     this._surname = surname;
     this._phoneNumber = phoneNumber;
+  } 
+  public get car(): Car {
+    return this._car;
+  }
+  public set car(value: Car) {
+    this._car = value;
+  }
+  public get carList(): Car[] {
+    return this._carList;
+  }
+  public set carList(value: Car[]) {
+    this._carList = value;
   }
   public get id(): number {
     return this._id;

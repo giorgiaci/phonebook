@@ -81,28 +81,20 @@
       "id": 3
     },
     {
-      "idPersona": 2,
-      "targa": "cici",
-      "modello": "utilitaria",
-      "marca": "cici",
-      "cavalli": "122",
-      "id": 7
-    },
-    {
-      "idPersona": 1,
-      "targa": "123467",
-      "modello": "GIP",
-      "marca": "ferrari",
-      "cavalli": "111",
-      "id": 10
-    },
-    {
       "idPersona": null,
       "targa": "111",
       "modello": "GIP",
       "marca": "1111",
       "cavalli": "111",
       "id": 12
+    },
+    {
+      "id": 13,
+      "idPersona": 1,
+      "targa": "nuovaCar",
+      "modello": "UTILITARIA",
+      "marca": "braaand",
+      "cavalli": "111"
     }
   ],
   "tipologicaMacchine": [

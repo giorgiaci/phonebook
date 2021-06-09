@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import { DetailPersonComponent } from '../components/detail-person/detail-person.component';
 import { AddCarsComponent } from './components/add-cars/add-cars';
+import { DetailsCarsComponent } from './components/details-cars/details-cars.component';
 import { SearchCarsComponent } from './components/search-cars/search-cars.component';
 
 
@@ -12,7 +14,13 @@ import { SearchCarsComponent } from './components/search-cars/search-cars.compon
           path: 'addCar', component: AddCarsComponent
         },
         {
-          path: ':idCar', component:AddCarsComponent
+          path: ':idCar',
+
+          
+          children:[
+            {path:'', component:DetailsCarsComponent},
+            { path:'edit', component:AddCarsComponent }
+          ]
         }
     ]
 

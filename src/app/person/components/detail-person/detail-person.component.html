@@ -28,13 +28,18 @@
 </div>
  
 <br>
-  <button class="btn btn-success" [routerLink]="['/person', person.id, 'edit']" >Edit person</button>
+  <button class="btn btn-success" [routerLink]="['/person', person?.id, 'edit']" >Edit person</button>
   <button class="btn btn-danger"  (click)="delete()">Delete person</button>
 
   <br><br>
   <hr>
 <h2>Cars</h2>
-  <app-details-cars  [cars]="cars" (modCar)="modifyCarInDetail($event)" (deleteCar)="deleteCarInDetail($event)"></app-details-cars>
+  <app-details-cars  
+      [cars]="cars"
+      (modifyCar)="modifyCarInDetail($event)"
+      (deleteCar)="deleteCarInDetail($event)"
+  >
+  </app-details-cars>
 
   <button class="btn btn-success"  (click)="addCar()">Add a new car</button>
   <br><br>
