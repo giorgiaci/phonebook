@@ -6,7 +6,7 @@ import { Person } from 'src/app/person/models/person.model';
 import { PersonsService } from 'src/app/person/services/persons.service';
 import { ModaleComponent } from '../modal/modal.component';
 
-
+let $:any;
 
 @Component({
   selector: 'app-home-page',
@@ -30,24 +30,27 @@ export class HomePageComponent implements OnInit {
 
      this.username = this.loginService.getUsername();
 
-     this.loginService.getUsername().subscribe((user) => {
-       this.searchResult = user;
+    // this.loginService.getUsername().subscribe((user) => {
+    //   this.searchResult = user;
       
-     });
-    
-     this.redirect();
+    // });
+    // this.loginService.getUsername().subscribe((user) => {
+    //   this.searchResult = user;
+      
+    // });
+    // this.redirect();
   }
-   redirect(){
-     if (!this.username) {
+  // redirect(){
+  //   if (!this.username) {
      
       
-       alert('effettua il login')
-       const redirectUrl = '/login';
+  //     alert('effettua il login')
+  //     const redirectUrl = '/login';
 
-       this.router.navigate([redirectUrl]);
-     }
+  //     this.router.navigate([redirectUrl]);
+  //   }
   
-   }
+  // }
  
   // @ViewChild('aleTiOdio') myModal:ElementRef;
   @ViewChild('aleTiOdio') myModal:ModaleComponent;

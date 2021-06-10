@@ -4,14 +4,14 @@
       "id": 2,
       "nome": "Alessandro",
       "cognome": "Avolio",
-      "email": "alessandro@avolio.com",
-      "codFiscale": "DOSF4422J4IEOE",
-      "datanascita": " 12/12/21",
-      "eta": "22",
       "telefono": "222222",
+      "eta": "0",
+      "datanascita": "2021-06-10",
+      "codFiscale": "SF4422J4I",
+      "email": "alessandro@avolio.com",
       "via": "'Via del Corso'",
-      "citta": "Roma",
       "stato": "Italy",
+      "citta": "Roma",
       "cap": "00100"
     },
     {
@@ -55,6 +55,34 @@
       "stato": "London",
       "citta": "London",
       "cap": "E147th"
+    },
+    {
+      "nome": "Giorgia",
+      "cognome": "Ciulla",
+      "telefono": "07730761319",
+      "eta": "0",
+      "datanascita": "2021-06-17",
+      "codFiscale": "1",
+      "email": "44@dd",
+      "via": "13 Carbis road",
+      "stato": "London",
+      "citta": "London",
+      "cap": "E147th",
+      "id": 6
+    },
+    {
+      "nome": "Cristina",
+      "cognome": "Ciulla",
+      "telefono": "07730761319",
+      "eta": "0",
+      "datanascita": "2021-06-15",
+      "codFiscale": "11111111",
+      "email": "44@dd5",
+      "via": "13 Carbis road",
+      "stato": "London",
+      "citta": "London",
+      "cap": "E147th",
+      "id": 7
     }
   ],
   "cars": [
@@ -62,7 +90,7 @@
       "id": 1,
       "idPersona": 2,
       "targa": "iuwei22",
-      "modello": "decappottabile",
+      "modello": "GIP",
       "marca": "ferrari",
       "cavalli": "200"
     },
@@ -81,6 +109,22 @@
       "marca": "d",
       "cavalli": "111",
       "id": 4
+    },
+    {
+      "id": 5,
+      "idPersona": 2,
+      "targa": "n",
+      "modello": "GIP",
+      "marca": "p",
+      "cavalli": "121"
+    },
+    {
+      "idPersona": 5,
+      "targa": "nc",
+      "modello": "GIP",
+      "marca": "1",
+      "cavalli": "111",
+      "id": 6
     }
   ],
   "tipologicaMacchine": [
