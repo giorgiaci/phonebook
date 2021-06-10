@@ -14,13 +14,13 @@ const routes: Routes = [
   {
     path: 'person',
     
-    //canActivateChild:[LoginGuard],
+    canActivateChild:[LoginGuard],
     loadChildren: () =>
       import('./person/person.module').then((m) => m.PersonModule),
 
   },
   {   path: 'login', component: LoginComponent},
-  {   path: 'home',  component: HomePageComponent, //canActivate:[LoginGuard]
+  {   path: 'home',  component: HomePageComponent, canActivate:[LoginGuard]
   },
 
  {   path: '', redirectTo:'login' , pathMatch: 'full'},
