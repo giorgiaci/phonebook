@@ -1,20 +1,6 @@
 {
   "persons": [
     {
-      "id": 1,
-      "nome": "Giorgia",
-      "cognome": "Ciulla",
-      "telefono": "07730761319",
-      "eta": "0",
-      "datanascita": "2021-03-01",
-      "codFiscale": "DOSF4422J",
-      "email": "giorgia@ciulla.com",
-      "via": "13 Carbis road",
-      "stato": "London",
-      "citta": "London",
-      "cap": "E147th"
-    },
-    {
       "id": 2,
       "nome": "Alessandro",
       "cognome": "Avolio",
@@ -81,12 +67,20 @@
       "cavalli": "200"
     },
     {
-      "id": 2,
       "idPersona": 1,
-      "targa": "nuovaCsssssssssar",
-      "modello": "UTILITARIA",
-      "marca": "braaand",
-      "cavalli": "111"
+      "targa": "ddd",
+      "modello": "DECAPPOTTABILE",
+      "marca": "dd",
+      "cavalli": "111",
+      "id": 3
+    },
+    {
+      "idPersona": 1,
+      "targa": "d",
+      "modello": "GIP",
+      "marca": "d",
+      "cavalli": "111",
+      "id": 4
     }
   ],
   "tipologicaMacchine": [
