@@ -1,0 +1,166 @@
+{
+    "persons": [
+      {
+        "id": 2,
+        "nome": "Mario",
+        "genere": "male",
+        "cognome": "Rossi",
+        "telefono": "222222",
+        "eta": "0",
+        "datanascita": "2021-06-10",
+        "codFiscale": "SF4422J4I",
+        "email": "mario@rossi.com",
+        "via": "'Via del Corso'",
+        "stato": "Italy",
+        "citta": "Roma",
+        "cap": "00100"
+      },
+      {
+        "id": 3,
+        "nome": "Laura",
+        "genere": "female",
+        "cognome": "Verdi",
+        "email": "laura@verdi.com",
+        "codFiscale": "DOSF4422J4IEOE",
+        "datanascita": " 12/12/21",
+        "eta": "22",
+        "telefono": "333333",
+        "via": "'Via del Corso'",
+        "citta": "Roma",
+        "stato": "Italy",
+        "cap": "00100"
+      },
+      {
+        "id": 4,
+        "nome": "Dario",
+        "genere": "male",
+        "cognome": "Medici",
+        "email": "dario@medici.com",
+        "codFiscale": "DOSF4422J4IEOE",
+        "datanascita": " 12/12/21",
+        "eta": "22",
+        "telefono": "4444444",
+        "via": "'Via del Corso'",
+        "citta": "Roma",
+        "stato": "Italy",
+        "cap": "00100"
+      },
+      {
+        "id": 5,
+        "nome": "Luca",
+        "genere": "male",
+        "cognome": "Regiano",
+        "telefono": "07730761319",
+        "eta": "0",
+        "datanascita": "2021-05-07",
+        "codFiscale": "222222222",
+        "email": "luca@regiano.com",
+        "via": "13 Carbis road",
+        "stato": "London",
+        "citta": "London",
+        "cap": "E147th"
+      },
+      {
+        "id": 6,
+        "nome": "Giorgia",
+        "genere": "female",
+        "cognome": "Ciulla",
+        "telefono": "07730761319",
+        "eta": "31",
+        "datanascita": "1991-04-17",
+        "codFiscale": "CCCGGG19Y",
+        "email": "giorgiaciulla.pa@gmail.com",
+        "via": "13 Carbis road",
+        "stato": "London",
+        "citta": "London",
+        "cap": "E147th"
+      },
+      {
+        "nome": "Cristina",
+        "genere": "female",
+        "cognome": "Palma",
+        "telefono": "07730761319",
+        "eta": "0",
+        "datanascita": "2021-06-15",
+        "codFiscale": "CCCRRR19Y",
+        "email": "cristina@palma",
+        "via": "13 Carbis road",
+        "stato": "London",
+        "citta": "London",
+        "cap": "E147th",
+        "id": 7
+      }
+    ],
+    "cars": [
+      {
+        "id": 1,
+        "idPersona": 2,
+        "targa": "iuwei22",
+        "modello": "GIP",
+        "marca": "ferrari",
+        "cavalli": "200"
+      },
+      {
+        "idPersona": 1,
+        "targa": "ddd",
+        "modello": "DECAPPOTTABILE",
+        "marca": "dd",
+        "cavalli": "111",
+        "id": 3
+      },
+      {
+        "idPersona": 1,
+        "targa": "d",
+        "modello": "GIP",
+        "marca": "d",
+        "cavalli": "111",
+        "id": 4
+      },
+      {
+        "idPersona": 5,
+        "targa": "nc",
+        "modello": "GIP",
+        "marca": "1",
+        "cavalli": "111",
+        "id": 6
+      },
+      {
+        "idPersona": 2,
+        "targa": "1787236y2",
+        "modello": "DECAPPOTTABILE",
+        "marca": "Ferrari",
+        "cavalli": "200",
+        "id": 7
+      }
+    ],
+    "tipologicaMacchine": [
+      {
+        "id": 1,
+        "nome": "GIP"
+      },
+      {
+        "id": 2,
+        "nome": "UTILITARIA"
+      },
+      {
+        "id": 3,
+        "nome": "DECAPPOTTABILE"
+      }
+    ],
+    "login": [
+      {
+        "id": 1,
+        "name": "Giorgia",
+        "cognomePersona": "Ciulla",
+        "password": "12345",
+        "ruolo": "studentessa"
+      },
+      {
+        "id": 2,
+        "name": "Oleg",
+        "cognomePersona": "Negruta",
+        "password": "12345",
+        "ruolo": "Insegnante"
+      }
+    ]
+  }
