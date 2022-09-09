@@ -8,12 +8,10 @@ import { SearchPersonComponent } from './components/search-person/search-person.
 
 const routes: Routes = [
   {
-    // person/search
     path: 'search',
     component: SearchPersonComponent,
   },
   {
-    // person/add
     path: 'add',
     component: AddPersonComponent,
   },

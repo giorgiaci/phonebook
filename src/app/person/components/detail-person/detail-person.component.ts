@@ -19,11 +19,9 @@ export class DetailPersonComponent implements OnInit {
   person: Person;
   cars: Car[];
   car: Car;
-  // idPerson: string;
-  // queryParameter: any;
-  // subscriptions: Subscription [] = [] ;
 
-  constructor(private route: Router,
+  constructor(
+    private route: Router,
     private activateRoute: ActivatedRoute,
     private personService: PersonsService,
     private carService: CarService) { }
@@ -35,19 +33,8 @@ export class DetailPersonComponent implements OnInit {
     this.getPerson(id);
     this.getCars(id);
 
-
-    //   this.subscriptions.push(this.activateRoute.paramMap.subscribe((params)=>{
-    //       this.idPerson=params.get('idPerson');
-    //   })
-    // )
-    // this.subscriptions.push(this.activateRoute.queryParamMap.subscribe((queryParams)=>{
-    //   this.queryParameter= queryParams;
-    // }))
-
   }
-  ngOnDestroy() {
-    // this.subscriptions.forEach(s=>s.unsubscribe());
-  }
+  ngOnDestroy() {}
 
   getPerson(id): void {
 

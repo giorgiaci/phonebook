@@ -1,8 +1,5 @@
-<form 
-  autocomplete="off" 
-  [formGroup]="carsForm" 
-  
-  >
+<h3 class="mt-3">{{title}}</h3>
+<form autocomplete="off"  [formGroup]="carsForm">
   <br>
   <div class="col-md-4">
     <label>Carplate: </label>
@@ -33,11 +30,8 @@
     </span>
     
     <br>
-    <button class="btn btn-primary" (click)="onSubmit()" autocomplete="off" type="submit"
+    <button class="btn btn-primary float-left" (click)="goBack()">Back</button>
+    <button class="btn btn-primary float-right" (click)="onSubmit()" autocomplete="off" type="submit"
     [disabled]="!carsForm.valid">Submit</button>
   </div>
-
-  <hr>
-  <p>Form Value: {{ carsForm.value | json }}</p>
-  <p>Form Status: {{ carsForm.status }}</p>
 </form>

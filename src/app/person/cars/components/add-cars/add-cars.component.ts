@@ -19,23 +19,24 @@ export class AddCarsComponent implements OnInit {
   carsForm: FormGroup;  
   car:Car;   
   arrayTipologiche: Array <TipologicaModel>;
+  title;
 
-  constructor( private carService: CarService,
-               private fb: FormBuilder,
-               private tipologicaService: TipologicaService,
-               private router: Router,
-               private activateRoute: ActivatedRoute               
-               ) { }
+  constructor( 
+    private carService: CarService,
+    private fb: FormBuilder,
+    private tipologicaService: TipologicaService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute)
+    {    
+      this.activatedRoute.snapshot.paramMap.get('idCar') ? this.title = 'Modify vehicle' : 'Add new vehicle';
+    }
 
   ngOnInit() {
-    const idModified = +this.activateRoute.snapshot.paramMap.get('idCar');
+    const idModified = +this.activatedRoute.snapshot.paramMap.get('idCar');
     this.inizializzaForm();
     this.getCar(idModified);
     this.getTipologica();    
   }
-getmacchina(){
-  
-}
   getCar(idModified){
     if(idModified){
           this.carService.getCar(idModified).subscribe((c) => {      
@@ -56,7 +57,7 @@ getmacchina(){
       this.onSubmitModified()
     }else{
          
-    const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
+    const id = +this.activatedRoute.snapshot.paramMap.get('idPerson');
     
     let formValue = this.carsForm.value;
 
@@ -82,7 +83,7 @@ getmacchina(){
   }
 
   onSubmitModified() {
-    const id = +this.activateRoute.snapshot.paramMap.get('idPerson');
+    const id = +this.activatedRoute.snapshot.paramMap.get('idPerson');
     let formValue = this.carsForm.value;
     this.car.carplate= formValue.carplate;
     this.car.brand= formValue.brand;
@@ -118,6 +119,12 @@ getmacchina(){
         (error) => { console.error('', error) }
       );
   }
-
+  goBack() {
+    if(this.car?.id){
+      this.router.navigate(['../../'], { relativeTo: this.activatedRoute.parent});
+    }else{
+      this.router.navigate(['../'], { relativeTo: this.activatedRoute.parent});
+    }
+  }
   
 }

@@ -117,20 +117,20 @@
       "id": 4
     },
     {
-      "id": 5,
-      "idPersona": 2,
-      "targa": "n",
-      "modello": "GIP",
-      "marca": "p",
-      "cavalli": "121"
-    },
-    {
       "idPersona": 5,
       "targa": "nc",
       "modello": "GIP",
       "marca": "1",
       "cavalli": "111",
       "id": 6
+    },
+    {
+      "idPersona": 2,
+      "targa": "1787236y2",
+      "modello": "DECAPPOTTABILE",
+      "marca": "Ferrari",
+      "cavalli": "200",
+      "id": 7
     }
   ],
   "tipologicaMacchine": [

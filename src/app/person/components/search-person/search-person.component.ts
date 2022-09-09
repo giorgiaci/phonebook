@@ -16,8 +16,7 @@ export class SearchPersonComponent implements OnInit {
 
   constructor(
     private phonebook: PersonsService,
-    private fb: FormBuilder,
-    private service: UserValidators
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -29,12 +28,9 @@ export class SearchPersonComponent implements OnInit {
 
   inizializzaForm() {
     this.searchForm = this.fb.group({
-      surnameCriteria: [undefined, [Validators.required]],
-      // email: this.fb.control(undefined,
-      //   // custom async validator
-      //   this.service.userValidator())
-      email: [undefined, [Validators.required]],
-      criteria: [undefined, [Validators.required]],
+      surnameCriteria: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      criteria: ['', [Validators.required]],
     });
   }
   search() {
@@ -61,23 +57,4 @@ export class SearchPersonComponent implements OnInit {
       (p)=>{this.searchResult = p;}
     )
   }
-  // this.phonebook.find2(formValue).subscribe(
-
-  //   (persons) => {
-  //     if( this.person.name == formValue ||
-  //         this.person.surname == formValue ||
-  //         this.person.email == formValue ||
-  //         this.person.codFiscale == formValue
-  //       ){
-
-  //           return this.searchResult = persons;
-  //       }
-
-  //       else{
-  //         (error) => { console.error('', error) }
-  //       }
-
-  //   }
-  // );
-  // }
 }
