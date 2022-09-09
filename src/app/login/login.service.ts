@@ -1,7 +1,7 @@
 import { Injectable, Input, OnDestroy } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay, filter, map, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { catchError, delay, filter, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { LoginModel } from './login.model';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
@@ -37,12 +37,20 @@ export class LoginService {
         })
       );
   }
-  public getUser(nome, pass): Observable<LoginModel> {
+  public getUser(nome: string, pass: string): Observable<LoginModel> {
+    let url = 'http://localhost:3000/login';
+    let params: HttpParams = new HttpParams();
+     params = params.append('name', nome)
+     params = params.append('password', pass);       
+   
     return this.http
-      .get<LoginModel>(
-        `http://localhost:3000/login?name=${nome}&password=${pass}`
-      )
+      .get<LoginModel>(url, {params: params})
       .pipe(
+        catchError((err) => {
+          err.error = undefined;
+          err.ok = true;
+          return of(undefined);
+        }),
         map((user: LoginModel) => {
           return user;
         })

@@ -18,7 +18,7 @@
     </span>
     
     
-    <span  *ngIf="loginError">Username e/o password errati</span>
+    <span  *ngIf="loginError" style="color: red;">*Username e/o password errati</span>
     <br><br>
     <button class="btn btn-primary" autocomplete="off" type="submit" *ngIf="!loggedIn()" [disabled]="!loginForm.valid">Login</button>
     

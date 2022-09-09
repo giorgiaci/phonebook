@@ -30,7 +30,7 @@ export class PersonsService {
     // this.persons = PHONEBOOK_CONTACTS;
     this.converterPersone = new PersonConverter();
   }
-  public find2(criteria?: any) {
+  public find(criteria?: any) {
     //if criteria has property..
     let queryParams = new HttpParams();
       if (criteria) {
@@ -55,8 +55,11 @@ export class PersonsService {
         })
       );
   }
-  public findPersons( __surname?: string, __email?: string): Observable<Person[]> {
+  public findPersons( __name?: string, __surname?: string, __email?: string): Observable<Person[]> {
     let queryParams = new HttpParams();
+    if (__name) {
+      queryParams = queryParams.set('nome', __name);
+    }
     if (__surname) {
       queryParams = queryParams.set('cognome', __surname);
     }

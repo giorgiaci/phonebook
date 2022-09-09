@@ -16,7 +16,7 @@ let $:any;
 })
 
 export class HomePageComponent implements OnInit {
-  
+  user:Person[]=[];
   username;
   searchResult: Array<LoginModel>;    
   
@@ -25,32 +25,21 @@ export class HomePageComponent implements OnInit {
                 private router:Router){ }
 
   ngOnInit() {
-    // this.username = this.loginService.getUsername().subscribe((user) => {
-    //   this.person = user;
-
-     this.username = this.loginService.getUsername();
-
-    // this.loginService.getUsername().subscribe((user) => {
-    //   this.searchResult = user;
-      
-    // });
-    // this.loginService.getUsername().subscribe((user) => {
-    //   this.searchResult = user;
-      
-    // });
-    // this.redirect();
+    this.username = this.loginService.getUsername();
+    this.personService.findPersons(this.username).subscribe(res => this.user = res);
+    this.redirect();
   }
-  // redirect(){
-  //   if (!this.username) {
-     
-      
-  //     alert('effettua il login')
-  //     const redirectUrl = '/login';
-
-  //     this.router.navigate([redirectUrl]);
-  //   }
   
-  // }
+  
+  redirect(){
+    if (!this.username) {          
+      alert('effettua il login')
+      const redirectUrl = '/login';
+
+      this.router.navigate([redirectUrl]);
+    }
+  
+  }
  
   // @ViewChild('aleTiOdio') myModal:ElementRef;
   @ViewChild('aleTiOdio') myModal:ModaleComponent;

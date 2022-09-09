@@ -7,6 +7,7 @@ export class PersonConverter{
         return {
             id: model.id,
             nome: model.name,
+            genere: model.gender,
             cognome: model.surname,
             telefono: model.phoneNumber,
             eta: model.age,
@@ -22,6 +23,7 @@ export class PersonConverter{
     toModel(dto:PersonaDTO): Person{
         let temp = new Person(dto.nome, dto.cognome,  dto.telefono);
         temp.id = dto.id;
+        temp.gender = dto.genere;
         temp.age = dto.eta;
         temp.birthdate = dto.datanascita;
         temp.codFiscale = dto.codFiscale;

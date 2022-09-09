@@ -1,29 +1,22 @@
-<h1> Welcome {{username}} in the home page!</h1>
-
+<h1 class="mt-3">Welcome  to your home page  {{username}} !</h1>
+<!-- Card -->
+<app-cards [title]='username' >    <hr>
+     <div class="row">
+      <div class="col-4">   
+        <img *ngIf="user[0]?.gender === 'male'" src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png">
+        <img *ngIf="user[0]?.gender === 'female'" src="https://www.clipartmax.com/png/full/290-2906168_wonder-woman-chibi-download-wonder-woman-icon-png.png">
+      </div>
+          <div class="col-7">
+            <p style="text-align: left;">{{ user[0]?.name }} {{ user[0]?.surname }}</p>
+            <p style="text-align: left;">{{ user[0]?.codFiscale }}</p>
+            <p style="text-align: left;">{{ user[0]?.phoneNumber }}</p>
+            <p style="text-align: left;">{{ user[0]?.email }}</p>
+            
+          </div>
+        </div>
+</app-cards>
 
 <!-- Modal -->
 
-<button type="button" class="btn btn-primary"  (click)="showModal()">Show Modal</button>
-
-<app-modal #aleTiOdio [title]="'hello'">Ciao<div>Mondo</div></app-modal>
-
-<!-- Card -->
-<app-cards [title]='username' >
-    <hr>
-     <div class="row">
-
-      <div class="col-4">   
-    
-         <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png">
-      </div>
-          <div class="col-4">
-            <p style="text-align: center;">Super Hero</p>
-            <p style="text-align: center;">{{ username }}</p>
-            
-          </div>
-    
-         
- 
-         
-        </div>
-</app-cards>
+<button type="button" class="btn btn-primary"  (click)="showModal()">Profile</button>
+<app-modal #aleTiOdio [title]="'hello'">Ciao<div>{{username}}</div></app-modal>

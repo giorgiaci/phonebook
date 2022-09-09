@@ -38,6 +38,7 @@ export class AddPersonComponent implements OnInit {
       this.phonebook.getPersona(idModified).subscribe((person) => {
 
         this.personForm.get('firstName').setValue(person.name);
+        this.personForm.get('gender').setValue(person.gender);
         this.personForm.get('lastName').setValue(person.surname);
         this.personForm.get('fiscalCode').setValue(person.codFiscale);
         this.personForm.get('birthday').setValue(person.birthdate);
@@ -63,6 +64,7 @@ export class AddPersonComponent implements OnInit {
 
       let newPerson = new Person();
       newPerson.name = formValue.firstName;
+      newPerson.gender = formValue.gender;
       newPerson.surname = formValue.lastName;
       newPerson.codFiscale = formValue.fiscalCode;
       newPerson.birthdate = formValue.birthday;
@@ -113,16 +115,13 @@ export class AddPersonComponent implements OnInit {
     );
   }
 
-  // settaSalti(){
-  //   this.personForm.get('salti').setValue(666);
-  // }
-
   inizializzaForm(idModified) {
     let birthday = this.fb.control(undefined, [Validators.required]);
 
     this.personForm = this.fb.group({
       //salti:[0],
       firstName: [undefined, Validators.required],
+      gender:[],
       lastName: [undefined, [Validators.required, Validators.maxLength(10)]],
       fiscalCode: [
         undefined,

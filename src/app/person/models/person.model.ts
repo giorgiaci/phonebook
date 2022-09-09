@@ -3,6 +3,7 @@ import { Car } from "../cars/car-models/car.model";
 export class Person {
   private _id: number;
   private _name: string;
+  private _gender: string;
   private _surname: string;
   private _codFiscale: string;
   private _birthdate: Date;
@@ -27,6 +28,12 @@ export class Person {
   }
   public set car(value: Car) {
     this._car = value;
+  }
+  public get gender(): string {
+    return this._gender;
+  }
+  public set gender(value: string) {
+    this._gender = value;
   }
   public get carList(): Car[] {
     return this._carList;
@@ -108,8 +115,7 @@ export class Person {
     this._zip = value;
   }
 
-
-  public get nominativo(){
+   public get nominativo(){
     return this.name + ' ' + this.surname
   }
 

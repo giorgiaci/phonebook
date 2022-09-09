@@ -1,6 +1,7 @@
 export interface PersonaDTO {
   id;
   nome;
+  genere;
   cognome;
   email;
   codFiscale;
@@ -12,4 +13,3 @@ export interface PersonaDTO {
   stato;
   cap;
 }
-//definisce un tipo - 

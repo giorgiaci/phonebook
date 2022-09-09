@@ -1,13 +1,7 @@
 <form autocomplete="off" [formGroup]="personForm">
   <br>
   <div class="row">
-    <div class="col-4">
-
-      <!-- <label>Salti: </label>
-<div class="btn btn-primary" (click)="settaSalti()">
-  setta salti
-</div>
-<app-incremento formControlName="salti" ></app-incremento> -->
+    <div class="col-4">    
 
       <label>First name: </label>
       <input autocomplete="off" type="text" formControlName="firstName" class="form-control">
@@ -52,9 +46,7 @@
       <input autocomplete="off" type="text" formControlName="email" class="form-control" />
       <span *ngIf="!personForm.get('email').valid && personForm.get('email').touched"> Please enter a valid email
         contact<br></span>
-      <!-- <p *ngIf="personForm.get('email').hasError('incorrectMailFormat')">Email format is invalid. <br></p>
-    <span style="color: red" *ngIf="personForm.get('email').errors?.emailDoesntExists">This email already exist <br></span> -->
-
+ 
     </div>
     <div class="col-4">
       <div formGroupName="address" autocomplete="off">
@@ -87,9 +79,6 @@
       <button class="btn btn-primary" (click)="onSubmit()" autocomplete="off" type="submit"
         [disabled]="!personForm.valid">Submit</button>
 
-      <hr>
-      <p>Form Value: {{ personForm.value | json }}</p>
-      <p>Form Status: {{ personForm.status }}</p>
     </div>
   </div>
 

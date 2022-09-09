@@ -3,6 +3,7 @@
     {
       "id": 2,
       "nome": "Alessandro",
+      "genere": "male",
       "cognome": "Avolio",
       "telefono": "222222",
       "eta": "0",
@@ -17,6 +18,7 @@
     {
       "id": 3,
       "nome": "Laura",
+      "genere": "female",
       "cognome": "Nocera",
       "email": "laura@nocera.com",
       "codFiscale": "DOSF4422J4IEOE",
@@ -31,6 +33,7 @@
     {
       "id": 4,
       "nome": "Dario",
+      "genere": "male",
       "cognome": "Fabbri",
       "email": "dario@fabbri.com",
       "codFiscale": "DOSF4422J4IEOE",
@@ -45,6 +48,7 @@
     {
       "id": 5,
       "nome": "Oleg",
+      "genere": "male",
       "cognome": "Negruta",
       "telefono": "07730761319",
       "eta": "0",
@@ -57,21 +61,23 @@
       "cap": "E147th"
     },
     {
+      "id": 6,
       "nome": "Giorgia",
+      "genere": "female",
       "cognome": "Ciulla",
       "telefono": "07730761319",
-      "eta": "0",
-      "datanascita": "2021-06-17",
-      "codFiscale": "1",
-      "email": "44@dd",
+      "eta": "31",
+      "datanascita": "1991-04-17",
+      "codFiscale": "CCCGGG19Y",
+      "email": "giorgiaciulla.pa@gmail.com",
       "via": "13 Carbis road",
       "stato": "London",
       "citta": "London",
-      "cap": "E147th",
-      "id": 6
+      "cap": "E147th"
     },
     {
       "nome": "Cristina",
+      "genere": "female",
       "cognome": "Ciulla",
       "telefono": "07730761319",
       "eta": "0",
@@ -151,8 +157,8 @@
     },
     {
       "id": 2,
-      "name": "Alessandro",
-      "cognomePersona": "Avolio",
+      "name": "Oleg",
+      "cognomePersona": "Negruta",
       "password": "12345",
       "ruolo": "Insegnante"
     }
