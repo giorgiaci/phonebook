@@ -1,0 +1,87 @@
+<form autocomplete="off" [formGroup]="personForm">
+  <br>
+  <div class="row">
+    <div class="col-4">    
+
+      <label>First name: </label>
+      <input autocomplete="off" type="text" formControlName="firstName" class="form-control">
+      <span *ngIf="!personForm.get('firstName').valid && personForm.get('firstName').touched">
+        <span *ngIf="personForm.get('firstName').errors['required']">This field is required <br></span>
+      </span>
+
+      <label>Last name:</label>
+      <input autocomplete="off" type="text" formControlName="lastName" id="name" class="form-control" />
+      <span *ngIf="!personForm.get('lastName').valid && personForm.get('lastName').touched">
+        <span *ngIf="personForm.get('lastName').errors['required']">This field is required <br></span>
+      </span>
+
+      <label> FiscalCode:</label>
+      <input autocomplete="off" type="text" formControlName="fiscalCode" class="form-control" />
+      <span *ngIf="!personForm.get('fiscalCode').valid && personForm.get('fiscalCode').touched">
+
+        <span *ngIf="personForm.get('fiscalCode').errors['required']">Fiscal code is required <br></span>
+        <span *ngIf="personForm.get('fiscalCode').errors['incorrectMaxLength']">Fiscal code has to be 10 characters
+          longs<br></span>
+      </span>
+
+      <label> Birthday:</label>
+      <input autocomplete="off" type="date" formControlName="birthday" class="form-control" />
+      <span *ngIf="!personForm.get('birthday').valid && personForm.get('birthday').touched"> Please enter a valid date
+        of birth<br></span>
+
+      <label> Age: </label>
+      <input autocomplete="off" type="text" formControlName="age" class="form-control" />
+      <span *ngIf="!personForm.get('age').valid && personForm.get('age').touched"> Please enter a valid age<br>
+        {{personForm.get('age').errors| json}}
+      </span>
+
+
+
+      <label> Phone number: </label>
+      <input autocomplete="off" type="text" formControlName="phoneNumber" class="form-control" />
+      <span *ngIf="!personForm.get('phoneNumber').valid && personForm.get('phoneNumber').touched"> Please enter a valid
+        phone number<br></span>
+
+      <label> email: </label>
+      <input autocomplete="off" type="text" formControlName="email" class="form-control" />
+      <span *ngIf="!personForm.get('email').valid && personForm.get('email').touched"> Please enter a valid email
+        contact<br></span>
+ 
+    </div>
+    <div class="col-4">
+      <div formGroupName="address" autocomplete="off">
+
+        <label> Street:</label>
+        <input autocomplete="off" type="text" formControlName="street" class="form-control" />
+        <span *ngIf="!personForm.get('address.street').valid && personForm.get('address.street').touched"> Please enter
+          a valid street<br></span>
+
+        <label> City:</label>
+        <input autocomplete="off" type="text" formControlName="city" class="form-control" />
+        <span *ngIf="!personForm.get('address.city').valid && personForm.get('address.city').touched"> Please enter a
+          valid city name<br></span>
+
+        <label> State:</label>
+        <input autocomplete="off" type="text" formControlName="state" class="form-control" />
+        <span *ngIf="!personForm.get('address.state').valid && personForm.get('address.state').touched"> Date of birth
+          is required<br></span>
+
+        <label>Zip Code:</label>
+        <input autocomplete="off" type="text" formControlName="zip" class="form-control" />
+        <span *ngIf="!personForm.get('address.zip').valid && personForm.get('address.zip').touched"> Please enter a
+          valid zip name<br></span>
+
+        <div *ngIf="personForm.get('address').hasError('invalid')">Compila 0 o tutti i campi</div>
+      </div>
+    </div>
+    <div class="col-4">
+      <h3>Add person</h3>
+      <button class="btn btn-primary" (click)="onSubmit()" autocomplete="off" type="submit"
+        [disabled]="!personForm.valid">Submit</button>
+
+    </div>
+  </div>
+
+</form>
+
+<button class="btn btn-primary mt-3" [routerLink]="'..'">Back</button>

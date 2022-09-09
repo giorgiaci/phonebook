@@ -1,0 +1,37 @@
+<h3 class="mt-3">{{title}}</h3>
+<form autocomplete="off"  [formGroup]="carsForm">
+  <br>
+  <div class="col-md-4">
+    <label>Carplate: </label>
+    <input autocomplete="off" type="text"  formControlName="carplate"  class="form-control">
+    <span *ngIf="!carsForm.get('carplate').valid && carsForm.get('carplate').touched">
+        <span *ngIf="carsForm.get('carplate').errors['required']">This field is required <br></span>
+    </span>
+
+    <label>Model: </label>
+    <select autocomplete="off" type="select"  formControlName="model"  class="form-control">
+        <option [ngValue]="modello.name" *ngFor="let modello of arrayTipologiche;">{{modello.name}}</option>
+    
+    </select>
+    <span *ngIf="!carsForm.get('model').valid && carsForm.get('model').touched">
+        <span *ngIf="carsForm.get('model').errors['required']">This field is required <br></span>
+    </span>
+    
+    <label>Brand: </label>
+    <input autocomplete="off" type="text"  formControlName="brand"  class="form-control">
+    <span *ngIf="!carsForm.get('brand').valid && carsForm.get('brand').touched">
+        <span *ngIf="carsForm.get('brand').errors['required']">This field is required <br></span>
+    </span>
+    
+    <label>Engine: </label>
+    <input autocomplete="off" type="text"  formControlName="engine"  class="form-control">
+    <span *ngIf="!carsForm.get('engine').valid && carsForm.get('engine').touched">        
+        <span *ngIf="carsForm.get('engine').errors['incorrectLength']">Engine should be between 50 and 200<br></span>
+    </span>
+    
+    <br>
+    <button class="btn btn-primary float-left" (click)="goBack()">Back</button>
+    <button class="btn btn-primary float-right" (click)="onSubmit()" autocomplete="off" type="submit"
+    [disabled]="!carsForm.valid">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,28 @@
+app-cards {
+  .card {
+    background-color: #dbdcdf;
+    border-radius: 10px;
+    color: #333;
+    width: 515px;
+    margin: 0 auto;
+    border: 2px solid #7fa7fb;
+    box-shadow: 1px 4px 3px 3px #adadad;
+    margin-bottom: 15px;
+    p{
+      margin-bottom: 5px;
+    }
+    h1{
+      text-align: center;
+      color:#2e2eff;
+      margin-bottom: 0;
+    }
+    hr{margin:3px}
+    img{
+      max-width: 150px;
+    }
+    .card-body{
+        padding: 1em;
+    }
+
+  }
+}
