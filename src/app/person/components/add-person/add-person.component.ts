@@ -174,4 +174,7 @@ export class AddPersonComponent implements OnInit {
       }
     }
   }
+  gotoSearch() {
+    this.router.navigate(['/person/search']);
+  }
 }
