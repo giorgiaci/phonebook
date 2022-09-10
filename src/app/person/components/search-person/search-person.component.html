@@ -1,28 +1,26 @@
 <br>
 <form [formGroup]="searchForm">
+  
   <div class="form-group">
     <input type="text" class="form-control" placeholder="type surname.."
       style="width: 300px; float: left; margin-right: 5px;" [formControl]="this.searchForm.get('surnameCriteria')" />
-    <input type="text" class="form-control" placeholder="type email.."
+    <input type="text" class="form-control  mr-3" placeholder="type email.."
       style="width: 300px; float: left; margin-right: 5px;" [formControl]="this.searchForm.get('email')" />
-    <input type="text" class="form-control" placeholder="type criteria.." style="width: 300px; float: left;"
-      [formControl]="this.searchForm.get('criteria')" /><br>
-
-  </div>
-  <br>
-
-  <button type="button" class="btn btn-success" (click)="search()" style="margin-right: 3px">
-    Filter
-  </button>
-  |
-    <button type="button" class="btn btn-danger" (click)="resetForm()" style="margin-right: 3px">
-    Reset
-  </button>
-  |
-  <button type="button" class="btn btn-primary">
-      <a style="color: white" routerLink="/person/add">
-        Add new person</a>
+  
+    <button type="button" class="btn btn-success" (click)="search()" style="margin-right: 3px">
+      Filter
     </button>
+    |
+      <button type="button" class="btn btn-danger" (click)="resetForm()" style="margin-right: 3px">
+      Reset
+    </button>
+    |
+    <button type="button" class="btn btn-primary">
+        <a style="color: white" routerLink="/person/add">
+          Add new person</a>
+      </button>
+  </div>
+ 
 
   <br /><br />
   <table class="table table-bordered table-hover">

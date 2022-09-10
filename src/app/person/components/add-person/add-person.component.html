@@ -15,6 +15,12 @@
         <span *ngIf="personForm.get('lastName').errors['required']">This field is required <br></span>
       </span>
 
+      <label>Gender: </label>
+      <select autocomplete="off" type="select"  formControlName="gender"  class="form-control">
+          <option [ngValue]="gender" *ngFor="let gender of genders;">{{gender}}</option>
+      
+      </select>
+
       <label> FiscalCode:</label>
       <input autocomplete="off" type="text" formControlName="fiscalCode" class="form-control" />
       <span *ngIf="!personForm.get('fiscalCode').valid && personForm.get('fiscalCode').touched">
@@ -83,5 +89,4 @@
   </div>
 
 </form>
-
 <button class="btn btn-primary mt-3" [routerLink]="'..'">Back</button>

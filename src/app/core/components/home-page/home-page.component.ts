@@ -40,12 +40,4 @@ export class HomePageComponent implements OnInit {
     }
   
   }
- 
-  // @ViewChild('aleTiOdio') myModal:ElementRef;
-  @ViewChild('aleTiOdio') myModal:ModaleComponent;
-
-  showModal(){
-    //open modal using jQuery
-    this.myModal.open();
-  }
 }

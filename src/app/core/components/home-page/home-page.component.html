@@ -3,8 +3,9 @@
 <app-cards [title]='username' >    <hr>
      <div class="row">
       <div class="col-4">   
-        <img *ngIf="user[0]?.gender === 'male'" src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png">
-        <img *ngIf="user[0]?.gender === 'female'" src="https://www.clipartmax.com/png/full/290-2906168_wonder-woman-chibi-download-wonder-woman-icon-png.png">
+        <img *ngIf="user[0]?.gender === 'M'" src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png">
+        <img *ngIf="user[0]?.gender === 'F'" src="https://www.clipartmax.com/png/full/290-2906168_wonder-woman-chibi-download-wonder-woman-icon-png.png">
+        <img *ngIf="user[0]?.gender === 'OTHERS'" src="https://icons.veryicon.com/png/o/avatar/superhero-marvel/loki.png">
       </div>
           <div class="col-7">
             <p style="text-align: left;">{{ user[0]?.name }} {{ user[0]?.surname }}</p>
@@ -15,8 +16,3 @@
           </div>
         </div>
 </app-cards>
-
-<!-- Modal -->
-
-<button type="button" class="btn btn-primary"  (click)="showModal()">Profile</button>
-<app-modal #aleTiOdio [title]="'hello'">Ciao<div>{{username}}</div></app-modal>

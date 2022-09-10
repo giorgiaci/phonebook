@@ -38,7 +38,7 @@ export class LoginComponent {
         }
       },
       (error) => {
-        console.error('utente non trovato', error);
+        console.warn('Utente non trovato', error);
       }
     );
   }

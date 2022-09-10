@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 import { Person } from '../../models/person.model';
 import { PersonsService } from '../../services/persons.service';
 import { EmailValidator } from '../add-person/email-validator';
@@ -18,6 +19,7 @@ import { DateValidator } from './date-validator';
 export class AddPersonComponent implements OnInit {
   personForm: FormGroup;
   person: Person;
+  genders: string[] = [];
 
   constructor(
     private phonebook: PersonsService,
@@ -25,7 +27,9 @@ export class AddPersonComponent implements OnInit {
     private router: Router,
     private activateRoute: ActivatedRoute,
     private service:UserValidators
-  ) {}
+  ) {
+    this.genders = ['F', 'M', 'OTHERS'];
+  }
 
   ngOnInit() {
     const idModified = +this.activateRoute.snapshot.paramMap.get('idPerson');
@@ -36,16 +40,15 @@ export class AddPersonComponent implements OnInit {
   getPerson(idModified): void {
     
       this.phonebook.getPersona(idModified).subscribe((person) => {
-
+        
         this.personForm.get('firstName').setValue(person.name);
         this.personForm.get('gender').setValue(person.gender);
         this.personForm.get('lastName').setValue(person.surname);
         this.personForm.get('fiscalCode').setValue(person.codFiscale);
-        this.personForm.get('birthday').setValue(person.birthdate);
+        this.personForm.get('birthday').setValue( moment(new Date(person.birthdate)).format('yyyy-MM-DD'));
         this.personForm.get('age').setValue(person.age);
         this.personForm.get('phoneNumber').setValue(person.phoneNumber);
-        this.personForm.get('email').setValue(person.email);
-        
+        this.personForm.get('email').setValue(person.email);        
         this.personForm.get('address.street').setValue(person.street);
         this.personForm.get('address.city').setValue(person.city);
         this.personForm.get('address.state').setValue(person.state);
@@ -98,7 +101,6 @@ export class AddPersonComponent implements OnInit {
     this.person.age = formValue.age;
     this.person.phoneNumber = formValue.phoneNumber;
     this.person.email = formValue.email;
-
     this.person.street = formValue.address.street;
     this.person.city = formValue.address.city;
     this.person.state = formValue.address.state;
@@ -120,9 +122,9 @@ export class AddPersonComponent implements OnInit {
 
     this.personForm = this.fb.group({
       //salti:[0],
-      firstName: [undefined, Validators.required],
-      gender:[],
-      lastName: [undefined, [Validators.required, Validators.maxLength(10)]],
+      firstName: ['', Validators.required],
+      gender:['', Validators.required],
+      lastName: ['', [Validators.required, Validators.maxLength(10)]],
       fiscalCode: [
         undefined,
         [Validators.required, MaxLengthValidator.parametricLengthFormat(10)],

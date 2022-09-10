@@ -27,8 +27,12 @@
   <div class="row">
     <br>
     <div class="col-12">
+      <div *ngIf="!loggedIn()" class="mx-auto mb-3" style="width: fit-content; padding:15px">  
+        <h4 style="text-align: center;">Hi! Insert login data</h4>
+        <p class="mr-3" style="display: block; float:left"><span style="color: rgb(1, 98, 131);"><b>Name</b></span> Giorgia/Mario/Elio</p>
+        <p style="display: block; float:left"><span style="color: rgb(1, 98, 131);"><b>Psw</b></span>12345</p>
+      </div>
       <router-outlet></router-outlet>
   </div>
   </div>
 </div>
-<div *ngIf="!loggedIn()" class="col-4 mx-auto" style="width: fit-content; display:block; padding:15px">Name: Giorgia/Oleg - Psw: 12345</div>

@@ -5,6 +5,7 @@ body{
     border: 1px solid grey;
     border-radius: 5px;
     padding: 40px 20px;
+    box-shadow: 1px 4px 3px 3px #adadad;
 }
 .form-control.ng-pristine.ng-invalid.ng-touched{
     border-left: 5px solid red; 
